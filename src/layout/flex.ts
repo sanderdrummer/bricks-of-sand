@@ -1,4 +1,5 @@
 import styled from "react-emotion";
+import { Block } from "./block";
 
 export interface FlexProps {
   flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
@@ -19,7 +20,7 @@ export interface FlexProps {
     | "space-around"
     | "stretch";
 }
-export const Flex = styled("div")<FlexProps>(
+export const Flex = styled(Block)<FlexProps>(
   {
     display: "flex"
   },
@@ -33,12 +34,8 @@ export const Flex = styled("div")<FlexProps>(
 );
 
 interface ColumnProps {
-  margin?: string;
-  padding?: string;
   flex?: string;
 }
-export const Column = styled("div")<ColumnProps>({}, props => ({
-  flex: props.flex,
-  margin: props.margin,
-  padding: props.padding
+export const Column = styled(Block)<ColumnProps>({}, props => ({
+  flex: props.flex
 }));

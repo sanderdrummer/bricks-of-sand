@@ -13,20 +13,20 @@ export const AutoGrid = styled("div")<AutoGridProps>(
     display: "grid"
   },
   props => ({
-    justifyContent: props.justifyContent,
     alignContent: props.alignContent,
-    justifyItems: props.justifyItems,
-    justifySelf: props.justifySelf,
     alignItems: props.alignItems,
     alignSelf: props.alignSelf,
-    margin: props.margin || "1rem",
+    gridAutoRows: props.rows
+      ? `minmax(${props.rows}, auto)`
+      : "minmax(10rem, auto)",
     gridGap: props.gridGap || "1rem",
     gridTemplateColumns: props.columns
       ? `repeat(auto-fill, minmax(${props.columns}, 1fr))`
       : "repeat(auto-fill, minmax(10rem, 1fr))",
-    gridAutoRows: props.rows
-      ? `minmax(${props.rows}, auto)`
-      : "minmax(10rem, auto)"
+    justifyContent: props.justifyContent,
+    justifyItems: props.justifyItems,
+    justifySelf: props.justifySelf,
+    margin: props.margin || "1rem"
   })
 );
 
@@ -37,13 +37,13 @@ interface SplitLayoutProps {
 export const SplitLayout = styled("div")<SplitLayoutProps>(
   {
     display: "grid",
+    gridGap: "1rem",
     gridTemplateColumns: "1fr",
-    margin: "1rem",
-    gridGap: "1rem"
+    margin: "1rem"
   },
   props => ({
-    margin: props.margin || "1rem",
     gridGap: props.gridGap || "1rem",
+    margin: props.margin || "1rem",
     [(props.theme as Theme).breakPoints.tablet]: {
       gridTemplateColumns: "1fr 1fr"
     }
@@ -61,34 +61,34 @@ type GridPlacement =
 
 interface GridPlacementProps {
   alignContent?: GridPlacement;
+  alignItems?: GridContentPlacement;
+  alignSelf?: GridContentPlacement;
   justifyContent?: GridPlacement;
   justifyItems?: GridContentPlacement;
   justifySelf?: GridContentPlacement;
-  alignItems?: GridContentPlacement;
-  alignSelf?: GridContentPlacement;
 }
 
 interface ResponsiveGridProps extends GridPlacementProps {
-  margin?: string;
-  gridGap?: string;
   columns?: string;
-  tabletColumns?: string;
+  gridGap?: string;
   laptopColumns?: string;
+  margin?: string;
   rows?: string;
+  tabletColumns?: string;
 }
 
 export const ResponsiveGrid = styled("div")<ResponsiveGridProps>(
   { display: "grid" },
   props => ({
-    justifyContent: props.justifyContent,
     alignContent: props.alignContent,
-    justifyItems: props.justifyItems,
-    justifySelf: props.justifySelf,
     alignItems: props.alignItems,
     alignSelf: props.alignSelf,
-    gridTemplateRows: props.rows,
-    margin: props.margin || "1rem",
     gridGap: props.gridGap || "1rem",
+    gridTemplateRows: props.rows,
+    justifyContent: props.justifyContent,
+    justifyItems: props.justifyItems,
+    justifySelf: props.justifySelf,
+    margin: props.margin || "1rem",
     [(props.theme as Theme).breakPoints.tablet]: {
       gridTemplateColumns: props.tabletColumns
     },
