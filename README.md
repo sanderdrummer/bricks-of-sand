@@ -10,22 +10,6 @@
 npm install --save bricks-of-sand
 ```
 
-## Usage
-
-```tsx
-import * as React from 'react'
-
-import MyComponent from 'bricks-of-sand'
-
-class Example extends React.Component {
-  render () {
-    return (
-      <MyComponent />
-    )
-  }
-}
-```
-
 ## License
 
 MIT © [sanderdrummer](https://github.com/sanderdrummer)
