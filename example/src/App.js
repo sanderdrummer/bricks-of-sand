@@ -7,9 +7,8 @@ import {
   Switch
 } from "react-router-dom";
 
-import ExampleComponent, {
+import {
   injectGlobal,
-  Card,
   theme,
   ThemeProvider,
   resetCss,
@@ -22,8 +21,6 @@ import { Form } from "bricks-of-sand/example/src/Form";
 
 injectGlobal(resetCss);
 injectGlobal(baseCss);
-
-console.log(theme);
 
 export default class App extends Component {
   render() {
