@@ -3,10 +3,10 @@ import { shadows } from "../ui/theme";
 
 export const MaterialInput = styled("div")({
   background: "white",
-  margin: "3rem",
   input: {
+    border: "none",
     boxShadow: shadows.level5,
-    padding: "0.8rem 0.5rem",
-    border: "none"
-  }
+    padding: "0.8rem 0.5rem"
+  },
+  margin: "3rem"
 });
