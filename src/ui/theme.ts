@@ -1,5 +1,7 @@
 export type Theme = typeof theme;
-export type WithTheme = { theme: Partial<Theme> };
+export interface WithTheme {
+  theme: Partial<Theme>;
+}
 export const shadows = {
   inset: "inset 0 2px 2px 0 rgba(0,0,0,.14)",
   level1: "0 0 1px rgba(0, 0, 0, 0)",
@@ -16,35 +18,36 @@ export const shadows = {
 };
 
 export const breakPoints = {
-  laptop: `@media(min-width: 75rem)`,
-  tablet: `@media(min-width: 48rem)`,
-  mobile: `@media(min-width: 30rem})`
+  laptop: `@media(min-width: 75em)`,
+  mobile: `@media(min-width: 30em})`,
+  tablet: `@media(min-width: 48em)`
 };
 
 export const theme = {
-  fontFamily: `'Raleway', sans-serif`,
-  white: "white",
-  grey: "#cdcdcd",
-  lightGrey: "#eee",
-  font: "#888",
   border: "#cdcdcd",
-  primary: "#64a4bd",
-  primaryDark: "pink",
-  red: "#E86C76",
+  breakPoints,
+  font: "#888",
+  fontFamily: `'Raleway', sans-serif`,
   green: "#9DB06A",
+  grey: "#cdcdcd",
+  laptop: "75em",
+  lightGrey: "#eee",
+  mobile: "30em",
   pc: "90rem",
-  laptop: "75rem",
-  tablet: "48rem",
-  mobile: "30rem",
+  primary: "#64a4bd",
+  red: "#E86C76",
   shadows,
-  breakPoints
+  tablet: "48em",
+  text: "#343434",
+  textSubtile: "#BABABA",
+  white: "white"
 };
 
-export const resetCss = `button,input[type=reset],input[type=button],input[type=submit],input[type=button],input[type=reset],input[type=submit]{overflow:visible;width:auto}blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}audio,embed,iframe,img,object,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}select[multiple]{vertical-align:top}*{box-sizing:border-box}button,input,label,select,textarea{margin:0;border:0;padding:0;display:inline-block;vertical-align:middle;white-space:normal;background:0 0;line-height:1;font-size:1rem;font-family:${
+export const resetCss = `button,input[type=reset],input[type=button],input[type=submit],input[type=button],input[type=reset],input[type=submit]{overflow:visible;width:auto}blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}audio,embed,iframe,img,object,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}select[multiple]{vertical-align:top}*{box-sizing:border-box}button,input,label,select,textarea{margin:0;border:0;padding:0;display:inline-block;vertical-align:middle;white-space:normal;background:0 0;line-height:1;font-size:0.8rem;font-family:${
   theme.fontFamily
 }}select[multiple],textarea{vertical-align:top}input:focus{outline:0}button,input[type=button],input[type=checkbox],input[type=radio],input[type=reset],input[type=submit],select{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}input[type=checkbox],input[type=radio]{width:1rem;height:1rem}input[type=search]{-webkit-appearance:textfield;-webkit-box-sizing:content-box}::-webkit-search-decoration{display:none}::-webkit-file-upload-button{padding:0;border:0;background:0 0}textarea{overflow:auto}`;
 export const baseCss = `
-:root{
+html{
   font-size: 18px;
 }
 
@@ -53,7 +56,7 @@ label {
 }
 
 @media only screen and (min-width: ${theme.laptop}) {
-  :root{
+  html{
     font-size: 24px;
   }
 }
@@ -68,7 +71,6 @@ h1,h2,h3{
 }
   a {
     text-decoration: none;
-    color: ${theme.primary};
   }
   button,
   input {
@@ -78,5 +80,3 @@ h1,h2,h3{
     border: 1px solid ${theme.border};
   }
 `;
-
-export const baseResetStyles = baseCss + " " + resetCss;
