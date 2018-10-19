@@ -84,6 +84,7 @@ export const ResponsiveGrid = styled("div")<ResponsiveGridProps>(
     alignItems: props.alignItems,
     alignSelf: props.alignSelf,
     gridGap: props.gridGap || "1rem",
+    gridTemplateColumns: props.columns,
     gridTemplateRows: props.rows,
     justifyContent: props.justifyContent,
     justifyItems: props.justifyItems,
