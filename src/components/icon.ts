@@ -3,6 +3,7 @@ import styled from "react-emotion";
 interface Props {
   width?: string;
   height?: string;
+  margin?: string;
 }
 
 export const Icon = styled("img")<Props>(
@@ -11,6 +12,7 @@ export const Icon = styled("img")<Props>(
   },
   props => ({
     height: props.height,
+    margin: props.margin,
     width: props.width
   })
 );
