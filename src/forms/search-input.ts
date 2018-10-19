@@ -4,7 +4,7 @@ import { theme } from "../ui";
 export const SearchInput = styled("div")(
   {
     input: {
-      border: "none"
+      border: `solid 1px ${theme.white}`
     },
     ["input:focus"]: {
       borderBottom: `solid 1px ${theme.primary}`
