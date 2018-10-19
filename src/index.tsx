@@ -4,4 +4,4 @@ export * from "./layout";
 export * from "./forms";
 
 export { injectGlobal } from "react-emotion";
-export { ThemeProvider } from "emotion-theming";
+export { ThemeProvider, withTheme } from "emotion-theming";
