@@ -25,11 +25,11 @@ export const Flex = styled(Block)<FlexProps>(
     display: "flex"
   },
   props => ({
+    alignContent: props.alignContent,
+    alignItems: props.alignItems,
     flexDirection: props.flexDirection,
     flexWrap: props.flexWrap,
-    justifyContent: props.justifyContent,
-    alignItems: props.alignItems,
-    alignContent: props.alignContent
+    justifyContent: props.justifyContent
   })
 );
 
