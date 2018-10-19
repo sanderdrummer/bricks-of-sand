@@ -25,6 +25,7 @@ export const breakPoints = {
 
 export const theme = {
   border: "#cdcdcd",
+  borderRadius: "4px",
   breakPoints,
   font: "#888",
   fontFamily: `'Raleway', sans-serif`,
