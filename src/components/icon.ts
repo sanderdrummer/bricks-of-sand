@@ -1,8 +1,8 @@
 import styled from "react-emotion";
 
 interface Props {
-  width: string;
-  height: string;
+  width?: string;
+  height?: string;
 }
 
 export const Icon = styled("img")<Props>(
