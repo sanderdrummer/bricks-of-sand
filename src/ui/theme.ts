@@ -2,6 +2,7 @@ export type Theme = typeof theme;
 export interface WithTheme {
   theme: Partial<Theme>;
 }
+export type ShadowKeys = keyof typeof shadows;
 export const shadows = {
   inset: "inset 0 2px 2px 0 rgba(0,0,0,.14)",
   level1: "0 0 1px rgba(0, 0, 0, 0)",
