@@ -36,7 +36,7 @@ export const Button = withTheme(
 
       return {
         ...isRoundStyles,
-        background: props.disabled ? theme.white : props.color,
+        background: props.disabled ? theme.white : props.background,
         borderRadius: props.isRound ? "100%" : props.theme.borderRadius,
         color: props.disabled ? theme.textSubtile : props.color
       };
