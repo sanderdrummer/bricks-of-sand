@@ -17,7 +17,6 @@ export const Button = withTheme(
     {
       backgroundPosition: "center",
       border: "none",
-      color: theme.white,
       cursor: "pointer",
       outline: "none",
       padding: " 0.5rem",
@@ -38,7 +37,9 @@ export const Button = withTheme(
         ...isRoundStyles,
         background: props.disabled ? theme.white : props.background,
         borderRadius: props.isRound ? "100%" : props.theme.borderRadius,
-        color: props.disabled ? theme.textSubtile : props.color
+        color: props.disabled
+          ? props.theme.textSubtile
+          : props.color || props.theme.white
       };
     }
   )
@@ -50,7 +51,37 @@ Button.defaultProps = {
 
 export const PrimaryButton = withTheme(
   styled(Button)<ButtonProps>({}, props => ({
-    background: props.disabled ? theme.grey : theme.primary
+    background: props.disabled ? props.theme.textSubtile : props.theme.primary,
+    color: props.disabled ? props.theme.white : props.theme.primary
+  }))
+);
+
+export const RedButton = withTheme(
+  styled(Button)<ButtonProps>({}, props => ({
+    background: props.disabled ? props.theme.red : props.theme.primary,
+    color: props.disabled ? props.theme.white : props.theme.primary
+  }))
+);
+
+export const GreenButton = withTheme(
+  styled(Button)<ButtonProps>({}, props => ({
+    background: props.disabled
+      ? props.theme.mainBackground
+      : props.theme.greenLight,
+
+    border: `1px solid ${
+      props.disabled ? props.theme.greenLight : "transparent"
+    }`,
+    color: props.disabled ? props.theme.greenLight : props.theme.green,
+    ["&:active"]: {
+      background: props.theme.greenHover,
+      color: props.theme.white
+    },
+    ["&:hover"]: {
+      background: props.disabled
+        ? props.theme.mainBackground
+        : props.theme.greenHover
+    }
   }))
 );
 

@@ -27,7 +27,7 @@ export const Card = styled(Flex)<CardProps>(
     "&:hover": {
       boxShadow: props.hover ? shadows[props.hover || "level1"] : undefined
     },
-    background: props.background || props.theme.white,
+    background: props.background || props.theme.componentBackgroundLight,
     borderRadius: props.theme.borderRadius,
     boxShadow: props.level ? shadows[props.level || "level1"] : undefined,
     color: props.color,
@@ -38,3 +38,4 @@ export const Card = styled(Flex)<CardProps>(
     width: props.width
   })
 );
+                                                   
