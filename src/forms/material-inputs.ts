@@ -11,6 +11,6 @@ export const MaterialInput = styled(Block)(
     }
   },
   props => ({
-    background: props.theme.white
+    background: props.theme.componentBackgroundDark
   })
 );
