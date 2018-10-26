@@ -16,7 +16,6 @@ export const light: Theme = {
   green: "#24C841",
   mainBackground: "#f2f3f2",
   primary: "#000",
-  red: "#E25766",
   text: "#343434",
   textSubtile: "#BABABA"
 };
@@ -29,11 +28,10 @@ export const dark: Theme = {
   green: "#24C841",
   mainBackground: "#25333F",
   primary: "#fff",
-  red: "#E25766",
   text: "#fdfdfd",
-  textSubtile: "#5B687B"
+  textSubtile: "#5B687B",
+  white: "black"
 };
-
 export const SelectedThemeContext = React.createContext({
   selectedTheme: "light",
   // tslint:disable-next-line:no-empty

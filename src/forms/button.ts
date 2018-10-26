@@ -52,22 +52,31 @@ Button.defaultProps = {
 export const PrimaryButton = withTheme(
   styled(Button)<ButtonProps>({}, props => ({
     background: props.disabled ? props.theme.textSubtile : props.theme.primary,
-    color: props.disabled ? props.theme.white : props.theme.primary
+    color: props.disabled ? props.theme.text : props.theme.white
   }))
 );
 
 export const RedButton = withTheme(
   styled(Button)<ButtonProps>({}, props => ({
-    background: props.disabled ? props.theme.red : props.theme.primary,
-    color: props.disabled ? props.theme.white : props.theme.primary
+    background: props.disabled ? "transparent" : props.theme.redLight,
+
+    border: `1px solid ${
+      props.disabled ? props.theme.redLight : "transparent"
+    }`,
+    color: props.disabled ? props.theme.redLight : props.theme.red,
+    ["&:active"]: {
+      background: props.theme.redHover,
+      color: props.theme.white
+    },
+    ["&:hover"]: {
+      background: props.disabled ? "transparent" : props.theme.redHover
+    }
   }))
 );
 
 export const GreenButton = withTheme(
   styled(Button)<ButtonProps>({}, props => ({
-    background: props.disabled
-      ? props.theme.mainBackground
-      : props.theme.greenLight,
+    background: props.disabled ? "transparent" : props.theme.greenLight,
 
     border: `1px solid ${
       props.disabled ? props.theme.greenLight : "transparent"
@@ -78,9 +87,7 @@ export const GreenButton = withTheme(
       color: props.theme.white
     },
     ["&:hover"]: {
-      background: props.disabled
-        ? props.theme.mainBackground
-        : props.theme.greenHover
+      background: props.disabled ? "transparent" : props.theme.greenHover
     }
   }))
 );
