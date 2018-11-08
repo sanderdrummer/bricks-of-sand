@@ -1,35 +1,90 @@
+import { withTheme } from "emotion-theming";
 import * as React from "react";
 import styled from "react-emotion";
+import { ClickOutside, WindowSize } from "../effects";
 
-export interface Props {
+interface Props {
+  breakPoint: number;
   label: React.ReactNode;
-  id: string;
 }
 
-const NavContainer = styled("div")({}, props => ({
-  ["&>input"]: {
-    display: "none"
-  },
-  ["input:checked ~ nav"]: {
-    background: props.theme.white,
-    maxHeight: "100vh",
-    zIndex: 100
-  },
-  nav: {
-    maxHeight: "0",
-    overflow: "hidden",
-    position: "absolute"
-  },
-  width: "inherit"
-}));
-
-export const Menu: React.SFC<Props> = ({ children, label, id }) => {
+export const Menu: React.SFC<Props> = ({ breakPoint, children, label }) => {
   return (
-    <NavContainer>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} type="checkbox" />
-
-      <nav>{children}</nav>
-    </NavContainer>
+    <WindowSize
+      render={width => {
+        if (width >= breakPoint) {
+          return <InlineMenu children={children} />;
+        } else {
+          return <CollapsibleMenu label={label} children={children} />;
+        }
+      }}
+    />
   );
+};
+
+interface CollapsibleMenuProps {
+  label: React.ReactNode;
+}
+
+interface CollapsibleMenuState {
+  isOpen: boolean;
+}
+
+const CollapsibleNavWrapper = withTheme(
+  styled("div")(
+    {
+      a: {
+        display: "block"
+      },
+      padding: "1rem",
+      position: "absolute",
+      zIndex: 500
+    },
+    ({ theme }) => ({
+      background: theme.componentBackgroundLight,
+      borderRadius: theme.borderRadius,
+      boxShadow: theme.shadows.level2
+    })
+  )
+);
+
+export class CollapsibleMenu extends React.Component<
+  CollapsibleMenuProps,
+  CollapsibleMenuState
+> {
+  public state = { isOpen: false };
+  public lock = false;
+
+  public open = () => {
+    if (!this.lock) {
+      this.setState({ isOpen: true });
+      this.lock = true;
+    } else {
+      this.close();
+    }
+  };
+
+  public close = () => {
+    this.setState({ isOpen: false });
+    this.lock = false;
+  };
+
+  public render(): JSX.Element {
+    return (
+      <div>
+        <ClickOutside onClick={this.close}>
+          <div onClick={this.open}>{this.props.label}</div>
+          {this.state.isOpen && (
+            <CollapsibleNavWrapper onClick={this.close}>
+              {this.props.children}
+            </CollapsibleNavWrapper>
+          )}
+        </ClickOutside>
+      </div>
+    );
+  }
+}
+
+export const InlineMenu: React.SFC = ({ children }) => {
+  return <div>{children}</div>;
 };
