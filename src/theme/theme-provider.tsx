@@ -40,6 +40,10 @@ export const SelectedThemeContext = React.createContext({
 
 const MainWrapper = withTheme(
   styled("div")(props => ({
+    a: {
+      color: props.theme.primary,
+      textDecoration: "none"
+    },
     background: props.theme.mainBackground,
     color: props.theme.text,
     minHeight: "100vh"
@@ -85,16 +89,19 @@ export class ThemeProvider extends React.Component<Props, State> {
 }
 
 export const IconWrapper = withTheme(
-  styled("div")({}, props => ({
-    svg: { fill: props.theme.primary }
+  styled("div")<{ height: string }>({}, props => ({
+    alignItems: "center",
+    display: "flex",
+    justifyContent: "center",
+    svg: { fill: props.theme.primary, height: props.height }
   }))
 );
 
-export const ThemeSwitcher = () => {
+export const ThemeSwitcher = ({ height }: { height: string }) => {
   return (
     <SelectedThemeContext.Consumer>
       {({ updateTheme, selectedTheme }) => (
-        <IconWrapper onClick={updateTheme}>
+        <IconWrapper height={height} onClick={updateTheme}>
           {selectedTheme === "light" ? <DayModeIcon /> : <NightModeIcon />}
         </IconWrapper>
       )}

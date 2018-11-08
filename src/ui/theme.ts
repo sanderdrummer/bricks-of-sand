@@ -75,23 +75,8 @@ label {
     font-size: 24px;
   }
 }
-body {
-  font-family: ${theme.fontFamily};
-  color: ${theme.font};
-  background: ${theme.lightGrey};
-}
 h1,h2,h3{
   text-transform: uppercase;
   font-weight: lighter;
 }
-  a {
-    text-decoration: none;
-  }
-  button,
-  input {
-    padding: 0.5rem;
-    width: 100%;
-    border-radius: 2px;
-    border: 1px solid ${theme.border};
-  }
 `;
