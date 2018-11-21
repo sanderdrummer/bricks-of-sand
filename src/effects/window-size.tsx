@@ -7,7 +7,7 @@ interface State {
 }
 
 interface Props {
-  render(width: number): JSX.Element;
+  render(width: number): React.ReactNode;
 }
 
 export class WindowSize extends React.Component<Props, State> {
@@ -25,7 +25,7 @@ export class WindowSize extends React.Component<Props, State> {
     window.removeEventListener("resize", this.resize);
   }
 
-  public render(): JSX.Element {
+  public render(): React.ReactNode {
     return this.props.render(this.state.width);
   }
 }
