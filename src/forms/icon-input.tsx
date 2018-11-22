@@ -3,8 +3,8 @@ import styled from "react-emotion";
 import { Flex } from "../layout";
 
 interface Props {
-  inactiveWidth?: "string";
-  activeWidth?: "string";
+  inactiveWidth?: string;
+  activeWidth?: string;
 }
 
 export const IconInput = withTheme(
@@ -18,10 +18,12 @@ export const IconInput = withTheme(
     },
     ["input:focus"]: {
       borderBottom: `solid 1px ${theme.primary}`,
+      placeholder: theme.primary,
       width: activeWidth
     },
     position: "relative",
     svg: {
+      fill: theme.primary,
       position: "absolute",
       right: 0
     }
