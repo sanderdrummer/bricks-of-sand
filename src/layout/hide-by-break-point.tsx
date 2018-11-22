@@ -2,13 +2,17 @@ import * as React from "react";
 import { WindowSize } from "../effects/window-size";
 
 export interface HideByBreakPointProps {
-  breakPoint: number;
+  min: number;
+  max: number;
   children: React.ReactNode;
 }
 
 export function HideByBreakPoint({
-  breakPoint,
-  children
+  children,
+  min = 0,
+  max = Infinity
 }: HideByBreakPointProps): JSX.Element {
-  return <WindowSize render={width => width >= breakPoint && children} />;
+  return (
+    <WindowSize render={width => width >= min && width <= max && children} />
+  );
 }
