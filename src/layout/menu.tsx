@@ -2,6 +2,8 @@ import { withTheme } from "emotion-theming";
 import * as React from "react";
 import styled from "react-emotion";
 import { ClickOutside, WindowSize } from "../effects";
+import { Tab } from "./tabs";
+import { ArrowDownIcon } from "../icons";
 
 interface Props {
   breakPoint: number;
@@ -29,6 +31,13 @@ interface CollapsibleMenuProps {
 interface CollapsibleMenuState {
   isOpen: boolean;
 }
+
+const SVGContainer = styled("div")({
+  svg: {
+    marginLeft: "4px"
+  }
+});
+const LabelTab = Tab(SVGContainer);
 
 const CollapsibleNavWrapper = withTheme(
   styled("div")(
@@ -73,7 +82,9 @@ export class CollapsibleMenu extends React.Component<
     return (
       <div>
         <ClickOutside onClick={this.close}>
-          <div onClick={this.open}>{this.props.label}</div>
+          <LabelTab className="active" onClick={this.open}>
+            {this.props.label} <ArrowDownIcon />
+          </LabelTab>
           {this.state.isOpen && (
             <CollapsibleNavWrapper onClick={this.close}>
               {this.props.children}

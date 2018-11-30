@@ -52,6 +52,7 @@ export const theme = {
   shadows,
   tablet: "48em",
   text: "#343434",
+  textHighlight: "#576176",
   textSubtile: "#BABABA",
   white: "white"
 };
