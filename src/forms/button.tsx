@@ -1,7 +1,9 @@
+import * as React from "react";
 import { withTheme } from "emotion-theming";
 import styled from "react-emotion";
 import { theme } from "../ui/theme";
 import { ButtonProps } from "./button";
+import { AcceptIcon, CancelIcon } from "../icons";
 
 export interface ButtonProps {
   color?: string;
@@ -10,6 +12,8 @@ export interface ButtonProps {
   type?: string;
   margin?: string;
   isRound?: boolean;
+  fontSize?: string;
+  hasShadow?: boolean;
 }
 
 export const Button = withTheme(
@@ -35,11 +39,19 @@ export const Button = withTheme(
 
       return {
         ...isRoundStyles,
+        boxShadow: props.hasShadow ? theme.shadows.level2 : "none",
         background: props.disabled ? theme.white : props.background,
         borderRadius: props.isRound ? "100%" : props.theme.borderRadius,
         color: props.disabled
           ? props.theme.textSubtile
-          : props.color || props.theme.white
+          : props.color || props.theme.white,
+        svg: {
+          fill: props.disabled
+            ? props.theme.textSubtile
+            : props.color || props.theme.white,
+          maxWidth: props.fontSize,
+          maxHeight: props.fontSize
+        }
       };
     }
   )
@@ -103,3 +115,15 @@ export const OutlineButton = withTheme(
     color: props.disabled ? props.theme.textSubtile : props.theme.primary
   }))
 );
+
+export const AcceptButton = () => (
+  <PrimaryButton hasShadow fontSize="0.8rem" isRound>
+    <AcceptIcon />
+  </PrimaryButton>
+);
+
+export const CancelButton = withTheme((props: any) => (
+  <Button hasShadow background={props.theme.red} fontSize="0.8rem" isRound>
+    <CancelIcon />
+  </Button>
+));
