@@ -116,14 +116,24 @@ export const OutlineButton = withTheme(
   }))
 );
 
-export const AcceptButton = () => (
-  <PrimaryButton hasShadow fontSize="0.8rem" isRound>
+interface AcceptCancelProps {
+  margin?: string;
+}
+
+export const AcceptButton = ({ margin }: AcceptCancelProps) => (
+  <PrimaryButton margin={margin} hasShadow fontSize="0.8rem" isRound>
     <AcceptIcon />
   </PrimaryButton>
 );
 
-export const CancelButton = withTheme((props: any) => (
-  <Button hasShadow background={props.theme.red} fontSize="0.8rem" isRound>
+export const CancelButton = withTheme(({ theme, margin }: any) => (
+  <Button
+    margin={margin}
+    hasShadow
+    background={theme.red}
+    fontSize="0.8rem"
+    isRound
+  >
     <CancelIcon />
   </Button>
 ));
