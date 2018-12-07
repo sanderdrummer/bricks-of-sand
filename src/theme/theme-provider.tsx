@@ -13,11 +13,18 @@ export const light: Theme = {
   border: "#E5E6E5",
   componentBackgroundDark: "#fff",
   componentBackgroundLight: "#fff",
-  green: "#24C841",
+  green: "#63C658",
+  greenHover: "#B3E5BB",
+  greenLight: "#CFE9D1",
+  greenText: "#63C658",
   mainBackground: "#f2f3f2",
-  primary: "#000",
+  primary: "#28333D",
+  red: "#D16069",
+  redHover: "#f3b4bb",
+  redLight: "#ffdce0",
+  redText: "#D16069",
   text: "#343434",
-  textSubtile: "#BABABA"
+  textSubtile: "#28333D"
 };
 
 export const dark: Theme = {

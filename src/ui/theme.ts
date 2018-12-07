@@ -49,6 +49,7 @@ export const theme = {
   red: "#E86C76",
   redHover: "#f3b4bb",
   redLight: "#ffdce0",
+  redText: "#D16069",
   shadows,
   tablet: "48em",
   text: "#343434",
