@@ -1,9 +1,9 @@
-import * as React from "react";
 import { withTheme } from "emotion-theming";
+import * as React from "react";
 import styled from "react-emotion";
-import { theme } from "../ui/theme";
-import { ButtonProps } from "./button";
 import { AcceptIcon, CancelIcon } from "../icons";
+import { theme, Theme } from "../ui/theme";
+import { ButtonProps } from "./button";
 
 export interface ButtonProps {
   color?: string;
@@ -14,6 +14,7 @@ export interface ButtonProps {
   isRound?: boolean;
   fontSize?: string;
   hasShadow?: boolean;
+  transform?: string;
 }
 
 export const Button = withTheme(
@@ -39,18 +40,21 @@ export const Button = withTheme(
 
       return {
         ...isRoundStyles,
-        boxShadow: props.hasShadow ? theme.shadows.level2 : "none",
+
         background: props.disabled ? theme.white : props.background,
         borderRadius: props.isRound ? "100%" : props.theme.borderRadius,
+        boxShadow: props.hasShadow ? theme.shadows.level2 : "none",
         color: props.disabled
           ? props.theme.textSubtile
           : props.color || props.theme.white,
+        margin: props.margin,
         svg: {
           fill: props.disabled
             ? props.theme.textSubtile
             : props.color || props.theme.white,
+          maxHeight: props.fontSize,
           maxWidth: props.fontSize,
-          maxHeight: props.fontSize
+          transform: props.transform
         }
       };
     }
@@ -118,22 +122,34 @@ export const OutlineButton = withTheme(
 
 interface AcceptCancelProps {
   margin?: string;
+  theme: Theme;
 }
 
-export const AcceptButton = ({ margin }: AcceptCancelProps) => (
-  <PrimaryButton margin={margin} hasShadow fontSize="0.8rem" isRound>
-    <AcceptIcon />
-  </PrimaryButton>
+export const AcceptButton = withTheme(
+  ({ margin, theme }: AcceptCancelProps) => (
+    <PrimaryButton
+      color={theme.themedWhite}
+      margin={margin}
+      hasShadow
+      fontSize="0.8rem"
+      isRound
+    >
+      <AcceptIcon />
+    </PrimaryButton>
+  )
 );
 
-export const CancelButton = withTheme(({ theme, margin }: any) => (
-  <Button
-    margin={margin}
-    hasShadow
-    background={theme.red}
-    fontSize="0.8rem"
-    isRound
-  >
-    <CancelIcon />
-  </Button>
-));
+export const CancelButton = withTheme(
+  ({ theme, margin }: AcceptCancelProps) => (
+    <Button
+      margin={margin}
+      hasShadow
+      background={theme.red}
+      fontSize="0.8rem"
+      transform="rotate(45deg)"
+      isRound
+    >
+      <CancelIcon />
+    </Button>
+  )
+);

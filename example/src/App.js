@@ -9,10 +9,10 @@ import {
 
 import {
   injectGlobal,
-  theme,
+  light,
+  dark,
   ThemeProvider,
-  resetCss,
-  baseCss
+  resetCss
 } from "bricks-of-sand";
 
 import { Home } from "bricks-of-sand/example/src/Home";
@@ -20,12 +20,11 @@ import { Layout } from "bricks-of-sand/example/src/Layout";
 import { Form } from "bricks-of-sand/example/src/Form";
 
 injectGlobal(resetCss);
-injectGlobal(baseCss);
 
 export default class App extends Component {
   render() {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider themes={{ light, dark }}>
         <BrowserRouter>
           <AppRouter />
         </BrowserRouter>
