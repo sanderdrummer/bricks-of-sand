@@ -18,7 +18,7 @@ export const Tab = (element: any) =>
       ({ theme, fontSize, margin }) => ({
         color: theme.textHighlight + "!important",
         fontSize: fontSize || "0.8rem",
-        margin: margin || "0.5rem",
+        margin,
         svg: {
           fill: theme.textHighlight,
           maxHeight: fontSize || "0.8rem",

@@ -83,13 +83,13 @@ export const ResponsiveGrid = styled("div")<ResponsiveGridProps>(
     alignContent: props.alignContent,
     alignItems: props.alignItems,
     alignSelf: props.alignSelf,
-    gridGap: props.gridGap || "1rem",
+    gridGap: props.gridGap,
     gridTemplateColumns: props.columns,
     gridTemplateRows: props.rows,
     justifyContent: props.justifyContent,
     justifyItems: props.justifyItems,
     justifySelf: props.justifySelf,
-    margin: props.margin || "1rem",
+    margin: props.margin,
     [(props.theme as Theme).breakPoints.tablet]: {
       gridTemplateColumns: props.tabletColumns
     },
