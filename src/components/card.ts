@@ -1,7 +1,8 @@
 import styled from "react-emotion";
-import { ShadowKeys } from "..";
+import { ShadowKeys, withTheme } from "..";
 import { Flex } from "../layout";
 import { shadows } from "../ui";
+import { Ellipsis } from "../ui/ellipsis-container";
 
 interface CardProps {
   height?: string;
@@ -38,4 +39,37 @@ export const Card = styled(Flex)<CardProps>(
     width: props.width
   })
 );
-                                                   
+
+interface DropDownCardProps {
+  isSelected?: boolean;
+  isHovered?: boolean;
+}
+
+export const DropDownCard = withTheme(
+  styled(Card)<DropDownCardProps>({}, ({ isSelected, isHovered, theme }) => ({
+    "&>*": {
+      background: isSelected
+        ? theme.lightGrey
+        : isHovered
+        ? theme.lightGrey
+        : undefined
+    },
+    background: theme.componentBackgroundLight,
+    borderRadius: theme.borderRadius,
+    boxShadow: theme.shadows.level2,
+    padding: "5px",
+    position: "absolute",
+    width: "100%",
+    zIndex: 500
+  }))
+);
+
+export const DropDownCardItem = withTheme(
+  styled(Ellipsis)<DropDownCardProps>(
+    {},
+    ({ isSelected, isHovered, theme }) => ({
+      background: isHovered ? theme.lightGrey : undefined,
+      fontWeight: isSelected ? "bold" : undefined
+    })
+  )
+);
