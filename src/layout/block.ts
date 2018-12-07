@@ -12,3 +12,7 @@ export const Block = styled("div")<BlockProps>({}, props => ({
   padding: props.padding,
   width: props.width
 }));
+
+export const Relative = styled("div")({
+  position: "relative"
+});
