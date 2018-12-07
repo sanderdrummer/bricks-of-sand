@@ -72,8 +72,12 @@ Button.defaultProps = {
 
 export const PrimaryButton = withTheme(
   styled(Button)<ButtonProps>({}, props => ({
-    background: props.disabled ? props.theme.textSubtile : props.theme.primary,
-    color: props.disabled ? props.theme.text : props.theme.white
+    background: props.theme.primary,
+    color: props.theme.white,
+    opacity: props.disabled ? 0.5 : 1,
+    svg: {
+      fill: props.theme.white
+    }
   }))
 );
 
