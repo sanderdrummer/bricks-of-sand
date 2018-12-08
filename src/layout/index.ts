@@ -8,3 +8,4 @@ export * from "./tabs";
 export * from "./separator";
 export * from "./list";
 export * from "./dropDown";
+export * from "./footer";
