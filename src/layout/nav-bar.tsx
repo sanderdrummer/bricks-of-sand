@@ -19,12 +19,12 @@ const NavBar = styled("div")(
   props => ({
     nav: {
       a: {
-        color: props.theme.textSubtile,
+        color: props.theme.textLight + "!important",
         ["&.active"]: {
-          color: props.theme.primary
+          color: props.theme.primary + "!important"
         }
       },
-      background: props.theme.white
+      background: props.theme.themedWhite
     }
   })
 );

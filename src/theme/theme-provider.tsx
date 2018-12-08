@@ -37,7 +37,7 @@ export const dark: Theme = {
   primary: "#fff",
   text: "#fdfdfd",
   textSubtile: "#5B687B",
-  themedWhite: "black"
+  themedWhite: "#1d2832"
 };
 export const SelectedThemeContext = React.createContext({
   selectedTheme: "light",

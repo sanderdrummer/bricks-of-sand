@@ -20,7 +20,8 @@ export const shadows = {
 
 export const breakPoints = {
   laptop: `@media(min-width: 75em)`,
-  mobile: `@media(min-width: 30em})`,
+  mobile: `@media(min-width: 30em)`,
+  mobileRange: `@media(max-width: 48em)`,
   tablet: `@media(min-width: 48em)`
 };
 
@@ -54,6 +55,7 @@ export const theme = {
   tablet: "48em",
   text: "#343434",
   textHighlight: "#576176",
+  textLight: "#cdcdcd",
   textSubtile: "#BABABA",
   themedBlack: "black",
   themedWhite: "white",

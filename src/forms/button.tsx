@@ -73,10 +73,10 @@ Button.defaultProps = {
 export const PrimaryButton = withTheme(
   styled(Button)<ButtonProps>({}, props => ({
     background: props.theme.primary,
-    color: props.theme.white,
+    color: props.theme.themedWhite,
     opacity: props.disabled ? 0.5 : 1,
     svg: {
-      fill: props.theme.white
+      fill: props.theme.themedWhite
     }
   }))
 );
@@ -91,7 +91,7 @@ export const RedButton = withTheme(
     color: props.disabled ? props.theme.redLight : props.theme.red,
     ["&:active"]: {
       background: props.theme.redHover,
-      color: props.theme.white
+      color: props.theme.themedWhite
     },
     ["&:hover"]: {
       background: props.disabled ? "transparent" : props.theme.redHover
@@ -132,7 +132,7 @@ export const OutlineButton = withTheme(
 export const AcceptButton = withTheme(({ margin, theme, onClick }: any) => (
   <PrimaryButton
     onClick={onClick}
-    color={theme.themedWhite}
+    color={theme.white}
     margin={margin}
     hasShadow
     fontSize="0.8rem"
