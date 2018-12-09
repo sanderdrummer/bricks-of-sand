@@ -33,6 +33,7 @@ export const dark: Theme = {
   componentBackgroundDark: "#1d2832",
   componentBackgroundLight: "#2E3D4D",
   green: "#24C841",
+  hover: "#47525A",
   mainBackground: "#25333F",
   primary: "#fff",
   text: "#fdfdfd",

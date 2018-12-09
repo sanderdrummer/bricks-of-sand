@@ -16,3 +16,19 @@ export const Block = styled("div")<BlockProps>({}, props => ({
 export const Relative = styled("div")({
   position: "relative"
 });
+
+export interface FixedContainerProps {
+  top?: number;
+  bottom?: number;
+}
+export const FixedContainer = styled("div")<FixedContainerProps>(
+  {
+    position: "fixed",
+    width: "100%",
+    zIndex: 10
+  },
+  props => ({
+    bottom: props.bottom,
+    top: props.top
+  })
+);

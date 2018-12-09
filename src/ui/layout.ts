@@ -64,3 +64,8 @@ export const ListItem = styled("div")({
   borderBottom: `solid 1px ${theme.border}`,
   padding: "1rem 0"
 });
+
+export interface FixedContainerProps {
+  top?: number;
+  bottom?: number;
+}

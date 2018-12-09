@@ -40,25 +40,22 @@ export const Button = withTheme(
 
       return {
         ...isRoundStyles,
-        background: props.disabled ? "transparent" : props.background,
+        "&:hover": {
+          background: props.background || props.theme.themedWhite
+        },
+        background: props.background,
         borderRadius: props.isRound ? "100%" : props.theme.borderRadius,
         boxShadow: props.hasShadow ? theme.shadows.level2 : "none",
-        color: props.disabled
-          ? props.theme.lightGrey
-          : props.color || props.theme.textHighlight,
-        hover: {
-          background: props.disabled
-            ? "transparent"
-            : props.background || props.theme.themedWhite
-        },
+        color: props.color || props.theme.textHighlight,
         margin: props.margin,
+        opacity: props.disabled ? 0.5 : 1,
         padding: props.padding || "0.5rem",
         svg: {
           fill: props.disabled
             ? props.theme.lightGrey
             : props.color || props.theme.textHighlight,
-          maxHeight: props.fontSize,
-          maxWidth: props.fontSize,
+          maxHeight: props.fontSize || "0.8rem",
+          maxWidth: props.fontSize || "0.8rem",
           transform: props.transform
         }
       };
@@ -72,6 +69,9 @@ Button.defaultProps = {
 
 export const PrimaryButton = withTheme(
   styled(Button)<ButtonProps>({}, props => ({
+    "&:hover": {
+      background: props.theme.primary
+    },
     background: props.theme.primary,
     color: props.theme.themedWhite,
     opacity: props.disabled ? 0.5 : 1,

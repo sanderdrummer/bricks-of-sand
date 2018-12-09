@@ -2,6 +2,7 @@ import styled from "react-emotion";
 import { Block } from "./block";
 
 export interface FlexProps {
+  doFlex?: string;
   flexDirection?: "row" | "row-reverse" | "column" | "column-reverse";
   flexWrap?: "nowrap" | "wrap" | "wrap-reverse";
   justifyContent?:
@@ -27,6 +28,7 @@ export const Flex = styled(Block)<FlexProps>(
   props => ({
     alignContent: props.alignContent,
     alignItems: props.alignItems,
+    flex: props.doFlex,
     flexDirection: props.flexDirection,
     flexWrap: props.flexWrap,
     justifyContent: props.justifyContent

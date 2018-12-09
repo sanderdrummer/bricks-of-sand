@@ -10,7 +10,7 @@ interface AlertTextProps {
 }
 export const AlertText = withTheme(
   styled("span")<AlertTextProps>({}, props => ({
-    color: props.value < 0 ? props.theme.red : undefined
+    color: props.value < 0 ? props.theme.red : props.theme.greenText
   }))
 );
 

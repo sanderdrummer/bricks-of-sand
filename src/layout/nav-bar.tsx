@@ -24,7 +24,10 @@ const NavBar = styled("div")(
           color: props.theme.primary + "!important"
         }
       },
-      background: props.theme.themedWhite
+      background: props.theme.themedWhite,
+      svg: {
+        fill: props.theme.primary
+      }
     }
   })
 );

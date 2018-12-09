@@ -39,6 +39,7 @@ export const theme = {
   greenLight: "#C8EACE",
   greenText: "#24C841",
   grey: "#cdcdcd",
+  hover: "#E8E8E8",
   inactive: "#cdcdcd",
   inputShadow: "inset 0 1px 1px 0 rgba(0, 0, 0, 0.15)",
   laptop: "75em",

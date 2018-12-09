@@ -48,11 +48,7 @@ interface DropDownCardProps {
 export const DropDownCard = withTheme(
   styled(Card)<DropDownCardProps>({}, ({ isSelected, isHovered, theme }) => ({
     "&>*": {
-      background: isSelected
-        ? theme.lightGrey
-        : isHovered
-        ? theme.lightGrey
-        : undefined
+      background: isSelected ? theme.hover : isHovered ? theme.hover : undefined
     },
     background: theme.componentBackgroundLight,
     borderRadius: theme.borderRadius,
@@ -68,8 +64,21 @@ export const DropDownCardItem = withTheme(
   styled(Ellipsis)<DropDownCardProps>(
     {},
     ({ isSelected, isHovered, theme }) => ({
-      background: isHovered ? theme.lightGrey : undefined,
+      background: isHovered ? theme.hover : undefined,
       fontWeight: isSelected ? "bold" : undefined
+    })
+  )
+);
+
+export const HoverCard = withTheme(
+  styled(Card)(
+    {
+      background: "transparent"
+    },
+    ({ theme }) => ({
+      "&:hover": {
+        background: theme.hover
+      }
     })
   )
 );

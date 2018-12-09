@@ -9,6 +9,7 @@ import { Tab } from "./tabs";
 interface Props {
   breakPoint: number;
   label: React.ReactNode;
+  inlineMargin?: string;
   justifyMenu?:
     | "flex-start"
     | "flex-end"
@@ -22,13 +23,20 @@ export const Menu: React.SFC<Props> = ({
   breakPoint,
   children,
   label,
+  inlineMargin,
   justifyMenu
 }) => {
   return (
     <WindowSize
       render={width => {
         if (width >= breakPoint) {
-          return <InlineMenu justifyMenu={justifyMenu} children={children} />;
+          return (
+            <InlineMenu
+              inlineMargin={inlineMargin}
+              justifyMenu={justifyMenu}
+              children={children}
+            />
+          );
         } else {
           return (
             <DropDown
@@ -53,9 +61,19 @@ const SVGContainer = styled("div")({
 });
 const LabelTab = Tab(SVGContainer);
 
-export const InlineMenu: React.SFC<Pick<Props, "justifyMenu">> = ({
-  children,
-  justifyMenu
-}) => {
-  return <Flex justifyContent={justifyMenu}>{children}</Flex>;
+const InlineContainer = styled(Flex)<Pick<Props, "inlineMargin">>(
+  {},
+  ({ inlineMargin }) => ({
+    a: { margin: inlineMargin }
+  })
+);
+
+export const InlineMenu: React.SFC<
+  Pick<Props, "justifyMenu" | "inlineMargin">
+> = ({ children, justifyMenu, inlineMargin }) => {
+  return (
+    <InlineContainer inlineMargin={inlineMargin} justifyContent={justifyMenu}>
+      {children}
+    </InlineContainer>
+  );
 };
