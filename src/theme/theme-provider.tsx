@@ -48,6 +48,9 @@ export const SelectedThemeContext = React.createContext({
 
 const MainWrapper = withTheme(
   styled("div")(props => ({
+    "*": {
+      outlineColor: props.theme.primary
+    },
     a: {
       color: props.theme.primary,
       textDecoration: "none"
