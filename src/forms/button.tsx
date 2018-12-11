@@ -21,11 +21,13 @@ export interface ButtonProps {
 export const Button = withTheme(
   styled("button")<ButtonProps>(
     {
+      alignContent: "center",
       backgroundPosition: "center",
       border: "none",
       cursor: "pointer",
-      outline: "none",
-      transition: "background 0.8s"
+      display: "inline-flex",
+      justifyContent: "center",
+      transition: "background 1s"
     },
     props => {
       const isRoundStyles = props.isRound
@@ -49,13 +51,14 @@ export const Button = withTheme(
         color: props.color || props.theme.textHighlight,
         margin: props.margin,
         opacity: props.disabled ? 0.5 : 1,
+        outlineColor: props.theme.primary,
         padding: props.padding || "0.5rem",
         svg: {
           fill: props.disabled
             ? props.theme.lightGrey
             : props.color || props.theme.textHighlight,
-          maxHeight: props.fontSize || "0.8rem",
-          maxWidth: props.fontSize || "0.8rem",
+          maxHeight: props.fontSize || "1rem",
+          maxWidth: props.fontSize || "1rem",
           transform: props.transform
         }
       };
@@ -135,7 +138,7 @@ export const AcceptButton = withTheme(({ margin, theme, onClick }: any) => (
     color={theme.white}
     margin={margin}
     hasShadow
-    fontSize="0.8rem"
+    fontSize="1rem"
     isRound
   >
     <AcceptIcon />
@@ -149,7 +152,7 @@ export const CancelButton = withTheme(({ theme, margin, onClick }: any) => (
     color={theme.white}
     hasShadow
     background={theme.red}
-    fontSize="0.8rem"
+    fontSize="1rem"
     transform="rotate(45deg)"
     isRound
   >
