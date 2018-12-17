@@ -13,7 +13,8 @@ export const Tab = (element: any) =>
         alignItems: "center",
         display: "inline-flex",
         padding: "0.5rem",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        transition: "background 1s",
       },
       ({ theme, fontSize, margin }) => ({
         color: theme.textHighlight + "!important",
@@ -22,12 +23,16 @@ export const Tab = (element: any) =>
         svg: {
           fill: theme.textHighlight,
           maxHeight: fontSize || "0.8rem",
-          maxWidth: fontSize || "0.8rem"
+          maxWidth: fontSize || "0.8rem",
         },
         ["&.active"]: {
           background: theme.componentBackgroundLight,
-          borderRadius: theme.borderRadius
-        }
+          borderRadius: theme.borderRadius,
+        },
+        ["&:hover"]: {
+          background: theme.componentBackgroundLight,
+          borderRadius: theme.borderRadius,
+        },
       })
     )
   );
