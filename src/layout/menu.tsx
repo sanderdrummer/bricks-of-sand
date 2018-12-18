@@ -1,8 +1,8 @@
+import styled from "@emotion/styled";
 import * as React from "react";
-import styled from "react-emotion";
 import { WindowSize } from "../effects";
 import { ArrowDownIcon } from "../icons";
-import { Flex } from "../layout";
+import { Flex } from "../layout/flex";
 import { DropDown } from "./dropDown";
 import { Tab } from "./tabs";
 
@@ -19,12 +19,26 @@ interface Props {
     | "space-evenly";
 }
 
+const SVGContainer = styled("div")({
+  svg: {
+    marginLeft: "4px",
+  },
+});
+const LabelTab = Tab(SVGContainer);
+
+const InlineContainer = styled(Flex)<Pick<Props, "inlineMargin">>(
+  {},
+  ({ inlineMargin }) => ({
+    a: { margin: inlineMargin },
+  })
+);
+
 export const Menu: React.SFC<Props> = ({
   breakPoint,
   children,
   label,
   inlineMargin,
-  justifyMenu
+  justifyMenu,
 }) => {
   return (
     <WindowSize
@@ -53,20 +67,6 @@ export const Menu: React.SFC<Props> = ({
     />
   );
 };
-
-const SVGContainer = styled("div")({
-  svg: {
-    marginLeft: "4px"
-  }
-});
-const LabelTab = Tab(SVGContainer);
-
-const InlineContainer = styled(Flex)<Pick<Props, "inlineMargin">>(
-  {},
-  ({ inlineMargin }) => ({
-    a: { margin: inlineMargin }
-  })
-);
 
 export const InlineMenu: React.SFC<
   Pick<Props, "justifyMenu" | "inlineMargin">

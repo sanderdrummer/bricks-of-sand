@@ -1,9 +1,11 @@
+import styled from "@emotion/styled";
 import { withTheme } from "emotion-theming";
-import styled from "react-emotion";
 
 interface TabProps {
   margin?: string;
   fontSize?: string;
+  className?: string;
+  onClick?(): void;
 }
 
 export const Tab = (element: any) =>

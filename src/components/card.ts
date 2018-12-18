@@ -1,8 +1,9 @@
-import styled from "react-emotion";
-import { ShadowKeys, withTheme } from "..";
-import { Flex } from "../layout";
+import styled from "@emotion/styled";
+import { withTheme } from "emotion-theming";
+import { Flex } from "../layout/flex";
 import { shadows } from "../ui";
 import { Ellipsis } from "../ui/ellipsis-container";
+import { ShadowKeys } from "../ui/theme";
 
 interface CardProps {
   height?: string;
@@ -16,28 +17,30 @@ interface CardProps {
   level?: ShadowKeys;
 }
 
-export const Card = styled(Flex)<CardProps>(
-  {
-    fontSize: "1rem",
-    overflow: "hidden",
-    padding: "1rem",
-    position: "relative",
-    transition: "all 0.3s cubic-bezier(.25, .8, .25, 1)"
-  },
-  props => ({
-    "&:hover": {
-      boxShadow: props.hover ? shadows[props.hover || "level1"] : undefined
+export const Card = withTheme(
+  styled(Flex)<CardProps>(
+    {
+      fontSize: "1rem",
+      overflow: "hidden",
+      padding: "1rem",
+      position: "relative",
+      transition: "all 0.3s cubic-bezier(.25, .8, .25, 1)",
     },
-    background: props.background || props.theme.componentBackgroundLight,
-    borderRadius: props.theme.borderRadius,
-    boxShadow: props.level ? shadows[props.level || "level1"] : undefined,
-    color: props.color,
-    display: props.flex ? "flex" : "block",
-    height: props.height,
-    margin: props.margin,
-    padding: props.padding,
-    width: props.width
-  })
+    props => ({
+      "&:hover": {
+        boxShadow: props.hover ? shadows[props.hover || "level1"] : undefined,
+      },
+      background: props.background || props.theme.componentBackgroundLight,
+      borderRadius: props.theme.borderRadius,
+      boxShadow: props.level ? shadows[props.level || "level1"] : undefined,
+      color: props.color,
+      display: props.flex ? "flex" : "block",
+      height: props.height,
+      margin: props.margin,
+      padding: props.padding,
+      width: props.width,
+    })
+  )
 );
 
 interface DropDownCardProps {
@@ -48,7 +51,11 @@ interface DropDownCardProps {
 export const DropDownCard = withTheme(
   styled(Card)<DropDownCardProps>({}, ({ isSelected, isHovered, theme }) => ({
     "&>*": {
-      background: isSelected ? theme.hover : isHovered ? theme.hover : undefined
+      background: isSelected
+        ? theme.hover
+        : isHovered
+        ? theme.hover
+        : undefined,
     },
     background: theme.componentBackgroundLight,
     borderRadius: theme.borderRadius,
@@ -56,7 +63,7 @@ export const DropDownCard = withTheme(
     padding: "5px",
     position: "absolute",
     width: "100%",
-    zIndex: 500
+    zIndex: 500,
   }))
 );
 
@@ -65,7 +72,7 @@ export const DropDownCardItem = withTheme(
     {},
     ({ isSelected, isHovered, theme }) => ({
       background: isHovered ? theme.hover : undefined,
-      fontWeight: isSelected ? "bold" : undefined
+      fontWeight: isSelected ? "bold" : undefined,
     })
   )
 );
@@ -73,12 +80,12 @@ export const DropDownCardItem = withTheme(
 export const HoverCard = withTheme(
   styled(Card)(
     {
-      background: "transparent"
+      background: "transparent",
     },
     ({ theme }) => ({
       "&:hover": {
-        background: theme.hover
-      }
+        background: theme.hover,
+      },
     })
   )
 );

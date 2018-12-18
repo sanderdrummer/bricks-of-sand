@@ -1,6 +1,6 @@
+import styled from "@emotion/styled";
 import { withTheme } from "emotion-theming";
 import * as React from "react";
-import styled from "react-emotion";
 import { AcceptIcon, CancelIcon } from "../icons";
 import { theme } from "../ui/theme";
 import { ButtonProps } from "./button";
@@ -27,7 +27,7 @@ export const Button = withTheme(
       cursor: "pointer",
       display: "inline-flex",
       justifyContent: "center",
-      transition: "background 1s"
+      transition: "background 1s",
     },
     props => {
       const isRoundStyles = props.isRound
@@ -36,14 +36,14 @@ export const Button = withTheme(
             minHeight: "2rem",
             minWidth: "2rem",
             overflow: "hidden",
-            width: "2rem"
+            width: "2rem",
           }
         : {};
 
       return {
         ...isRoundStyles,
         "&:hover": {
-          background: props.background || props.theme.themedWhite
+          background: props.background || props.theme.themedWhite,
         },
         background: props.background,
         borderRadius: props.isRound ? "100%" : props.theme.borderRadius,
@@ -59,28 +59,28 @@ export const Button = withTheme(
             : props.color || props.theme.textHighlight,
           maxHeight: props.fontSize || "1rem",
           maxWidth: props.fontSize || "1rem",
-          transform: props.transform
-        }
+          transform: props.transform,
+        },
       };
     }
   )
 );
 
 Button.defaultProps = {
-  type: "text"
+  type: "text",
 };
 
 export const PrimaryButton = withTheme(
   styled(Button)<ButtonProps>({}, props => ({
     "&:hover": {
-      background: props.theme.primary
+      background: props.theme.primary,
     },
     background: props.theme.primary,
     color: props.theme.themedWhite,
     opacity: props.disabled ? 0.5 : 1,
     svg: {
-      fill: props.theme.themedWhite
-    }
+      fill: props.theme.themedWhite,
+    },
   }))
 );
 
@@ -94,11 +94,11 @@ export const RedButton = withTheme(
     color: props.disabled ? props.theme.redLight : props.theme.red,
     ["&:active"]: {
       background: props.theme.redHover,
-      color: props.theme.themedWhite
+      color: props.theme.themedWhite,
     },
     ["&:hover"]: {
-      background: props.disabled ? "transparent" : props.theme.redHover
-    }
+      background: props.disabled ? "transparent" : props.theme.redHover,
+    },
   }))
 );
 
@@ -112,11 +112,11 @@ export const GreenButton = withTheme(
     color: props.disabled ? props.theme.greenLight : props.theme.green,
     ["&:active"]: {
       background: props.theme.greenHover,
-      color: props.theme.white
+      color: props.theme.white,
     },
     ["&:hover"]: {
-      background: props.disabled ? "transparent" : props.theme.greenHover
-    }
+      background: props.disabled ? "transparent" : props.theme.greenHover,
+    },
   }))
 );
 
@@ -128,7 +128,7 @@ export const OutlineButton = withTheme(
         ? props.theme.textSubtile
         : props.background || props.theme.primary
     }`,
-    color: props.disabled ? props.theme.textSubtile : props.theme.primary
+    color: props.disabled ? props.theme.textSubtile : props.theme.primary,
   }))
 );
 

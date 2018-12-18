@@ -1,6 +1,6 @@
 {
   "name": "bricks-of-sand",
-  "version": "0.0.19",
+  "version": "0.1.0",
   "description": "another react component library",
   "author": "sanderdrummer",
   "license": "MIT",
@@ -15,6 +15,7 @@
   "scripts": {
     "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
     "test:watch": "react-scripts-ts test --env=jsdom",
+    "lint-fix": "tslint --fix src/**/*.tsx -t verbose",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "starte": "cd example && yarn start",
@@ -23,10 +24,9 @@
     "deploy": "gh-pages -d example/build"
   },
   "dependencies": {
-    "emotion": "^9.2.10",
-    "emotion-theming": "^9.2.9",
-    "react-emotion": "^9.2.10",
-    "styled-components": "^4.1.2"
+    "@emotion/core": "^10.0.5",
+    "@emotion/styled": "^10.0.5",
+    "emotion-theming": "^10.0.5"
   },
   "peerDependencies": {
     "react": "^16.0.0",

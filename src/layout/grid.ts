@@ -1,4 +1,4 @@
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { Theme } from "../ui";
 
 interface AutoGridProps extends GridPlacementProps {

@@ -1,9 +1,9 @@
+import styled from "@emotion/styled";
 import {
   ThemeProvider as EmotionsThemeProvider,
   withTheme
 } from "emotion-theming";
 import * as React from "react";
-import styled from "react-emotion";
 import { Theme, theme } from "../ui";
 import { DayModeIcon } from "./dayMode";
 import { NightModeIcon } from "./nightMode";

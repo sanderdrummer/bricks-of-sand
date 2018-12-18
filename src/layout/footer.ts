@@ -1,5 +1,5 @@
 import { withTheme } from "emotion-theming";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 
 export const Footer = withTheme(
   styled("footer")({}, ({ theme }) => ({

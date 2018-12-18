@@ -1,6 +1,6 @@
+import styled from "@emotion/styled";
 import { withTheme } from "emotion-theming";
 import * as React from "react";
-import styled from "react-emotion";
 import { ClickOutside } from "../effects";
 
 const CollapsibleNavWrapper = withTheme(

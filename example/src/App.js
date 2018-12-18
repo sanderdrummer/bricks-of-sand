@@ -4,22 +4,14 @@ import {
   NavLink,
   Redirect,
   Route,
-  Switch
+  Switch,
 } from "react-router-dom";
 
-import {
-  injectGlobal,
-  light,
-  dark,
-  ThemeProvider,
-  resetCss
-} from "bricks-of-sand";
+import { light, dark, ThemeProvider } from "bricks-of-sand";
 
 import { Home } from "bricks-of-sand/example/src/Home";
 import { Layout } from "bricks-of-sand/example/src/Layout";
 import { Form } from "bricks-of-sand/example/src/Form";
-
-injectGlobal(resetCss);
 
 export default class App extends Component {
   render() {

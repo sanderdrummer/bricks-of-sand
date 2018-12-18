@@ -1,4 +1,4 @@
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { theme } from "../ui";
 
 export const SearchInput = styled("div")(

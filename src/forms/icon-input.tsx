@@ -1,5 +1,5 @@
+import styled from "@emotion/styled";
 import { withTheme } from "emotion-theming";
-import styled from "react-emotion";
 import { Flex } from "../layout";
 
 interface Props {

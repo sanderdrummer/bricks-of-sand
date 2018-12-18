@@ -6,5 +6,6 @@ export * from "./theme";
 export * from "./icons";
 export * from "./typography";
 
-export { injectGlobal } from "react-emotion";
 export { withTheme } from "emotion-theming";
+export { css, jsx } from "@emotion/core";
+export { default as styled } from "@emotion/styled";
