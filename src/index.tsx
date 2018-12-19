@@ -7,5 +7,5 @@ export * from "./icons";
 export * from "./typography";
 
 export { withTheme } from "emotion-theming";
-export { css, jsx } from "@emotion/core";
+export { css, jsx, Global } from "@emotion/core";
 export { default as styled } from "@emotion/styled";

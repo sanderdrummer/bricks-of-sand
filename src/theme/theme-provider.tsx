@@ -1,10 +1,13 @@
+/** @jsx jsx */
+import { css, Global, jsx } from "@emotion/core";
+
 import styled from "@emotion/styled";
 import {
   ThemeProvider as EmotionsThemeProvider,
-  withTheme
+  withTheme,
 } from "emotion-theming";
 import * as React from "react";
-import { Theme, theme } from "../ui";
+import { resetCss, Theme, theme } from "../ui";
 import { DayModeIcon } from "./dayMode";
 import { NightModeIcon } from "./nightMode";
 
@@ -24,7 +27,7 @@ export const light: Theme = {
   redLight: "#ffdce0",
   redText: "#D16069",
   text: "#343434",
-  textSubtile: "#28333D"
+  textSubtile: "#28333D",
 };
 
 export const dark: Theme = {
@@ -45,26 +48,26 @@ export const dark: Theme = {
   redText: "#B54F5E",
   text: "#fdfdfd",
   textSubtile: "#5B687B",
-  themedWhite: "#1d2832"
+  themedWhite: "#1d2832",
 };
 export const SelectedThemeContext = React.createContext({
   selectedTheme: "light",
   // tslint:disable-next-line:no-empty
-  updateTheme: () => {}
+  updateTheme: () => {},
 });
 
 const MainWrapper = withTheme(
   styled("div")(props => ({
     "*": {
-      outlineColor: props.theme.primary
+      outlineColor: props.theme.primary,
     },
     a: {
       color: props.theme.primary,
-      textDecoration: "none"
+      textDecoration: "none",
     },
     background: props.theme.mainBackground,
     color: props.theme.text,
-    minHeight: "100vh"
+    minHeight: "100vh",
   }))
 );
 
@@ -93,7 +96,7 @@ export class ThemeProvider extends React.Component<Props, State> {
       <SelectedThemeContext.Provider
         value={{
           selectedTheme: this.state.selectedTheme,
-          updateTheme: this.updateTheme
+          updateTheme: this.updateTheme,
         }}
       >
         <EmotionsThemeProvider
@@ -101,6 +104,7 @@ export class ThemeProvider extends React.Component<Props, State> {
         >
           <MainWrapper>{this.props.children}</MainWrapper>
         </EmotionsThemeProvider>
+        <Global styles={css(resetCss)} />
       </SelectedThemeContext.Provider>
     );
   }
@@ -111,7 +115,7 @@ export const IconWrapper = withTheme(
     alignItems: "center",
     display: "flex",
     justifyContent: "center",
-    svg: { fill: props.theme.primary, height: props.height }
+    svg: { fill: props.theme.primary, height: props.height },
   }))
 );
 
