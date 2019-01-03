@@ -56,6 +56,10 @@ export const SelectedThemeContext = React.createContext({
   updateTheme: () => {},
 });
 
+const THEME_KEY = "SELECTED_THEME";
+const getTheme = (): string => localStorage.getItem(THEME_KEY) || "light";
+const setTheme = (theme: string) => localStorage.setItem(THEME_KEY, theme);
+
 const MainWrapper = withTheme(
   styled("div")(props => ({
     "*": {
@@ -83,11 +87,12 @@ export interface State {
 }
 
 export class ThemeProvider extends React.Component<Props, State> {
-  public state = { selectedTheme: "light" };
+  public state = { selectedTheme: getTheme() };
 
   public updateTheme = () => {
     const selectedTheme =
       this.state.selectedTheme === "light" ? "dark" : "light";
+    setTheme(selectedTheme);
     this.setState({ selectedTheme });
   };
 
