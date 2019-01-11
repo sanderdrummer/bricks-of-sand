@@ -27,7 +27,8 @@ const TabInput = withTheme(
       border: "solid 1px transparent",
       borderRadius: theme.borderRadius,
       color: theme.primary,
-      padding: "0 0.5rem",
+      fontSize: "0.8rem",
+      padding: "4px",
       width: "100%",
     })
   )
@@ -37,9 +38,10 @@ export const SelectionTab = withTheme(
     isValid?: boolean;
   }>(({ theme, isValid }) => ({
     alignItems: "center",
-    background: isValid ? theme.green : theme.red,
+    background: isValid ? theme.greenLight : theme.redLight,
     borderRadius: theme.borderRadius,
     display: "flex",
+    marginBottom: "4px",
     marginRight: "4px",
     minHeight: "2rem",
     padding: "0 0.5rem",
@@ -53,6 +55,7 @@ interface State<T> {
 }
 
 interface Props<T> {
+  excludeIds?: number[];
   items: Mapped<T>;
   placeholder: string;
   disabled?: boolean;
@@ -121,7 +124,13 @@ export class MultiSelectionBox<T = any> extends React.Component<
   };
 
   public getSelectionArray = (collection: Mapped<T>) => {
-    return Object.values(collection);
+    return this.props.excludeIds
+      ? Object.values(collection).filter(
+          item =>
+            this.props.excludeIds &&
+            this.props.excludeIds.indexOf(this.props.getItemIndex(item)) === -1
+        )
+      : Object.values(collection);
   };
 
   public isInSelection = (item: T) => {
@@ -148,7 +157,7 @@ export class MultiSelectionBox<T = any> extends React.Component<
 
   public render(): JSX.Element {
     const props = this.props;
-    const items = this.props.items;
+    const items = props.items;
 
     return (
       <Downshift onChange={this.handleSelection} itemToString={() => ""}>
