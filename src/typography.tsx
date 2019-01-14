@@ -1,3 +1,5 @@
+import * as React from "react";
+
 import styled from "@emotion/styled";
 import { withTheme } from "emotion-theming";
 
@@ -29,9 +31,14 @@ export const TextAlign = styled("div")<TextAlignProps>({}, props => ({
   textAlign: props.textAlign,
 }));
 
-export const Ellipsis = styled("div")({
+const EllipsisWrapper = styled("div")({
   minWidth: 0,
   overflow: "hidden",
   textOverflow: "ellipsis",
   whiteSpace: "nowrap",
 });
+
+export const Ellipsis: React.FunctionComponent = ({ children }) => {
+  const title = typeof children === "string" ? children : "";
+  return <EllipsisWrapper title={title}>{children}</EllipsisWrapper>;
+};

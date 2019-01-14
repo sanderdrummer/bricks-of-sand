@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { withTheme } from "emotion-theming";
 import { Flex } from "../layout/flex";
+import { Ellipsis } from "../typography";
 import { shadows } from "../ui";
-import { Ellipsis } from "../ui/ellipsis-container";
 import { ShadowKeys } from "../ui/theme";
 
 interface CardProps {
