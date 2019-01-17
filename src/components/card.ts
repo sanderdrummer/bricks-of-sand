@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import { withTheme } from "emotion-theming";
 import { Flex } from "../layout/flex";
-import { Ellipsis } from "../typography";
 import { shadows } from "../ui";
 import { ShadowKeys } from "../ui/theme";
 
@@ -68,8 +67,13 @@ export const DropDownCard = withTheme(
 );
 
 export const DropDownCardItem = withTheme(
-  styled(Ellipsis)<DropDownCardProps>(
-    {},
+  styled("div")<DropDownCardProps>(
+    {
+      minWidth: 0,
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+    },
     ({ isSelected, isHovered, theme }) => ({
       background: isHovered ? theme.hover : undefined,
       fontWeight: isSelected ? "bold" : undefined,
