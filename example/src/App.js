@@ -7,7 +7,7 @@ import {
   Switch,
 } from "react-router-dom";
 
-import { light, dark, ThemeProvider } from "bricks-of-sand";
+import { light, dark, ThemeProvider, Global } from "bricks-of-sand";
 
 import { Home } from "bricks-of-sand/example/src/Home";
 import { Layout } from "bricks-of-sand/example/src/Layout";
@@ -27,6 +27,11 @@ export default class App extends Component {
 
 const AppRouter = () => (
   <div>
+    <Global
+      styles={{
+        body: { color: "pink" },
+      }}
+    />
     <NavLink to="/home">Home</NavLink>
     <NavLink to="/layout">Layout</NavLink>
     <NavLink to="/form">Form</NavLink>
