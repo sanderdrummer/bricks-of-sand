@@ -132,8 +132,9 @@ export const OutlineButton = withTheme(
   }))
 );
 
-export const AcceptButton = withTheme(({ margin, theme, onClick }: any) => (
+export const AcceptButton = withTheme(({ margin, theme, onClick, disabled }: any) => (
   <PrimaryButton
+    disabled={disabled}
     onClick={onClick}
     color={theme.white}
     margin={margin}
@@ -145,8 +146,9 @@ export const AcceptButton = withTheme(({ margin, theme, onClick }: any) => (
   </PrimaryButton>
 ));
 
-export const CancelButton = withTheme(({ theme, margin, onClick }: any) => (
+export const CancelButton = withTheme(({ theme, margin, onClick, disabled }: any) => (
   <Button
+    disabled={disabled}
     onClick={onClick}
     margin={margin}
     color={theme.white}

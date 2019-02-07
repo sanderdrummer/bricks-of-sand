@@ -57,6 +57,8 @@ export const Form = () => (
       <Flex>
         <AcceptButton margin="0 1rem" />
         <CancelButton margin="0 1rem" />
+        <AcceptButton disabled margin="0 1rem" />
+        <CancelButton disabled margin="0 1rem" />
       </Flex>
     </div>
   </div>
