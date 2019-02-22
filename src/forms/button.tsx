@@ -132,32 +132,36 @@ export const OutlineButton = withTheme(
   }))
 );
 
-export const AcceptButton = withTheme(({ margin, theme, onClick, disabled }: any) => (
-  <PrimaryButton
-    disabled={disabled}
-    onClick={onClick}
-    color={theme.white}
-    margin={margin}
-    hasShadow
-    fontSize="1rem"
-    isRound
-  >
-    <AcceptIcon />
-  </PrimaryButton>
-));
+export const AcceptButton = withTheme(
+  ({ margin, theme, onClick, disabled }: any) => (
+    <PrimaryButton
+      disabled={disabled}
+      onClick={onClick}
+      color={theme.white}
+      margin={margin}
+      hasShadow
+      fontSize="1rem"
+      isRound
+    >
+      <AcceptIcon />
+    </PrimaryButton>
+  )
+);
 
-export const CancelButton = withTheme(({ theme, margin, onClick, disabled }: any) => (
-  <Button
-    disabled={disabled}
-    onClick={onClick}
-    margin={margin}
-    color={theme.white}
-    hasShadow
-    background={theme.red}
-    fontSize="1rem"
-    transform="rotate(45deg)"
-    isRound
-  >
-    <CancelIcon />
-  </Button>
-));
+export const CancelButton = withTheme(
+  ({ theme, margin, onClick, disabled }: any) => (
+    <Button
+      disabled={disabled}
+      onClick={onClick}
+      margin={margin}
+      color={theme.white}
+      hasShadow
+      background={theme.red}
+      fontSize="1rem"
+      transform="rotate(45deg)"
+      isRound
+    >
+      <CancelIcon />
+    </Button>
+  )
+);
