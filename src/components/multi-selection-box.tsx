@@ -4,11 +4,12 @@ import styled from "@emotion/styled";
 import Downshift from "downshift";
 import { withTheme } from "emotion-theming";
 
+import { Input } from "../forms";
 import { Relative } from "../layout";
 import { DropDownCard, DropDownCardItem } from "./card";
 
 interface Mapped<T> {
-  [key: number]: T;
+  [key: string]: T;
 }
 
 const TabInput = withTheme(
@@ -178,7 +179,7 @@ export class MultiSelectionBox<T = any> extends React.Component<
                   {this.getSelectionArray(this.state.selection).map(item => {
                     return this.renderTabs(item, this.deselect);
                   })}
-                  <input
+                  <Input
                     {...getInputProps({
                       disabled: props.disabled,
                       placeholder: props.placeholder,
