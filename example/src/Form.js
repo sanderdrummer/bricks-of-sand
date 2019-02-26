@@ -9,9 +9,10 @@ import {
   ThemeSwitcher,
   AcceptButton,
   CancelButton,
-  PrimaryButton,
   Flex,
-  ResponsiveGrid
+  AutoComplete,
+  SearchAutoComplete,
+  TextButton,
 } from "bricks-of-sand";
 
 export const Form = () => (
@@ -60,6 +61,21 @@ export const Form = () => (
         <AcceptButton disabled margin="0 1rem" />
         <CancelButton disabled margin="0 1rem" />
       </Flex>
+    </div>
+    <div>
+      <AutoComplete
+        onSelect={user => console.log(user)}
+        items={[{ name: "peter" }, { name: "uschi" }]}
+      />
+      <SearchAutoComplete
+        onSelect={user => console.log(user)}
+        items={[{ name: "peter" }, { name: "uschi" }]}
+      />
+    </div>
+    <div>
+      <TextButton>FOCUS ME</TextButton>
+      <TextButton>FOCUS ME</TextButton>
+      <TextButton>FOCUS ME</TextButton>
     </div>
   </div>
 );

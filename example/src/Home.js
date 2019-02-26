@@ -21,14 +21,7 @@ export const Home = () => (
       <div>
         <MultiSelectionBox
           placeholder="test"
-          items={[
-            { name: "hello" },
-            { name: "peter" },
-            { name: "test" },
-            { name: "test1" },
-            { name: "test2" },
-            { name: "test3" },
-          ]}
+          items={{}}
           getItemIndex={item => item.name}
           itemToString={item => (item ? item.name : "")}
         />

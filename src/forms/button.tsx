@@ -165,3 +165,10 @@ export const CancelButton = withTheme(
     </Button>
   )
 );
+
+export const TextButton = styled("button")({
+  background: "none",
+  border: "none",
+  margin: 0,
+  padding: 0,
+});
