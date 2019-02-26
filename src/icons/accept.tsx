@@ -1,4 +1,7 @@
+import { withTheme } from "emotion-theming";
 import * as React from "react";
+import { Icon } from "../components";
+import { AcceptButton } from '../forms/button';
 
 export function AcceptIcon(): JSX.Element {
   return (
@@ -12,3 +15,5 @@ export function AcceptIcon(): JSX.Element {
     </svg>
   );
 }
+
+export const GreenAcceptIcon = withTheme(props => (<Icon color={props.theme.green}><AcceptButton/></Icon>))
