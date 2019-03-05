@@ -13,6 +13,10 @@ import {
   AutoComplete,
   SearchAutoComplete,
   TextButton,
+  GreenButton,
+  RedButton,
+  Block,
+  PrimaryButton,
 } from "bricks-of-sand";
 
 export const Form = () => (
@@ -72,10 +76,33 @@ export const Form = () => (
         items={[{ name: "peter" }, { name: "uschi" }]}
       />
     </div>
-    <div>
+    <Block margin="2rem">
+      <TextButton disabled>FOCUS ME</TextButton>
       <TextButton>FOCUS ME</TextButton>
       <TextButton>FOCUS ME</TextButton>
-      <TextButton>FOCUS ME</TextButton>
-    </div>
+    </Block>
+    <Block margin="2rem">
+      <GreenButton>1.200</GreenButton>
+      <GreenButton disabled>1.200</GreenButton>
+    </Block>
+    <Block margin="2rem">
+      <RedButton>1.200</RedButton>
+      <RedButton disabled>1.200</RedButton>
+    </Block>
+    <Block margin="2rem">
+      <Button>1.200</Button>
+      <Button disabled>1.200</Button>
+    </Block>
+    <Block margin="2rem">
+      <PrimaryButton>1.200</PrimaryButton>
+      <PrimaryButton disabled>1.200</PrimaryButton>
+    </Block>
+    <Flex width="320px" justifyContent="space-around" margin="2rem">
+      <PrimaryButton>Primary</PrimaryButton>
+      <Button>Plain</Button>
+      <TextButton>Text</TextButton>
+      <RedButton>Red</RedButton>
+      <GreenButton>Green</GreenButton>
+    </Flex>
   </div>
 );
