@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 export const SearchMinus = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

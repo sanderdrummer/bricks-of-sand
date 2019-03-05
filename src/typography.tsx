@@ -12,7 +12,8 @@ interface AlertTextProps {
 }
 export const AlertText = withTheme(
   styled("span")<AlertTextProps>({}, props => ({
-    color: props.value < 0 ? props.theme.red : props.theme.greenText,
+    color:
+      props.value < 0 ? props.theme.buttonRedFont : props.theme.buttonGreenFont,
   }))
 );
 

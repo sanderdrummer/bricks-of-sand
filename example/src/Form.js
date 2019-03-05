@@ -17,6 +17,7 @@ import {
   RedButton,
   Block,
   PrimaryButton,
+  AlertText,
 } from "bricks-of-sand";
 
 export const Form = () => (
@@ -104,5 +105,17 @@ export const Form = () => (
       <RedButton>Red</RedButton>
       <GreenButton>Green</GreenButton>
     </Flex>
+    <Block margin="2rem">
+      <AlertText value={12345}>Plus ALERT</AlertText>
+      <AlertText value={-12345}>Minus ALERT</AlertText>
+    </Block>
+    <Block margin="2rem">
+      <Card>
+        <AlertText value={12345}>Plus ALERT</AlertText>
+      </Card>
+      <Card>
+        <AlertText value={-12345}>Minus ALERT</AlertText>
+      </Card>
+    </Block>
   </div>
 );
