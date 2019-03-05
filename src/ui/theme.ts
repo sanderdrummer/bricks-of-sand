@@ -15,16 +15,17 @@ export const shadows = {
   level5:
     "0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12),0 3px 5px -1px rgba(0,0,0,.2)",
   level6:
-    "0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12),0 5px 5px -3px rgba(0,0,0,.2)"
+    "0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12),0 5px 5px -3px rgba(0,0,0,.2)",
 };
 
 export const breakPoints = {
   laptop: `@media(min-width: 75em)`,
   mobile: `@media(min-width: 30em)`,
   mobileRange: `@media(max-width: 48em)`,
-  tablet: `@media(min-width: 48em)`
+  tablet: `@media(min-width: 48em)`,
 };
 
+// tslint:disable:object-literal-sort-keys
 export const theme = {
   border: "#cdcdcd",
   borderRadius: "4px",
@@ -56,11 +57,23 @@ export const theme = {
   tablet: "48em",
   text: "#343434",
   textHighlight: "#576176",
-  textLight: "#cdcdcd",
+  textLight: "#4e4e4e",
   textSubtile: "#BABABA",
   themedBlack: "black",
   themedWhite: "white",
-  white: "white"
+  white: "white",
+  buttonCancelFont: "#ffedf0",
+  buttonCancelBackground: "#E86C76",
+  buttonAcceptFont: "#e8eaeb",
+  buttonAcceptBackground: "#213440",
+  buttonGreenBackground: "#cbf5d7",
+  buttonGreenFont: "#00cc1d",
+  buttonRedBackground: "#ffdce0",
+  buttonRedFont: "#f54963",
+  buttonDefaultBackground: "#fff",
+  buttonDefaultFont: "#58697d",
+  buttonDisabled: "#bababa",
+  textButtonFont: "#58697d",
 };
 export const resetCss = `button,input[type=reset],input[type=button],input[type=submit],input[type=button],input[type=reset],input[type=submit]{overflow:visible;width:auto}blockquote,body,dd,dl,dt,fieldset,figure,h1,h2,h3,h4,h5,h6,hr,html,iframe,legend,li,ol,p,pre,textarea,ul{margin:0;padding:0}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400}ul{list-style:none}button,input,select,textarea{margin:0}html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}audio,embed,iframe,img,object,video{height:auto;max-width:100%}iframe{border:0}table{border-collapse:collapse;border-spacing:0}td,th{padding:0;text-align:left}select[multiple]{vertical-align:top}*{box-sizing:border-box}button,input,label,select,textarea{margin:0;border:0;padding:0;display:inline-block;vertical-align:middle;white-space:normal;background:0 0;line-height:1;font-size:0.8rem;font-family:${
   theme.fontFamily

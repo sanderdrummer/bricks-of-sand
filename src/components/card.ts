@@ -23,7 +23,6 @@ export const Card = withTheme(
       overflow: "hidden",
       padding: "1rem",
       position: "relative",
-      transition: "all 0.3s cubic-bezier(.25, .8, .25, 1)",
     },
     props => ({
       "&:hover": {

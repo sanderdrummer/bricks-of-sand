@@ -13,10 +13,10 @@ export const Tab = (element: any) =>
     styled(element)<TabProps>(
       {
         alignItems: "center",
+        cursor: "pointer",
         display: "inline-flex",
         padding: "0.5rem",
         textTransform: "uppercase",
-        transition: "background 1s",
       },
       ({ theme, fontSize, margin }) => ({
         color: theme.textHighlight + "!important",

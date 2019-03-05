@@ -27,7 +27,6 @@ export const Button = withTheme(
       cursor: "pointer",
       display: "inline-flex",
       justifyContent: "center",
-      transition: "background 1s",
     },
     props => {
       const isRoundStyles = props.isRound
@@ -40,27 +39,43 @@ export const Button = withTheme(
           }
         : {};
 
+      const disabledStyles = props.disabled
+        ? {
+            background: "transparent",
+            border: `2px solid ${props.theme.buttonDisabled}`,
+            color: props.theme.buttonDisabled,
+            cursor: "not-allowed",
+            svg: {
+              fill: props.theme.buttonDisabled,
+              maxHeight: props.fontSize || "1rem",
+              maxWidth: props.fontSize || "1rem",
+              transform: props.transform,
+            },
+          }
+        : {
+            "&:hover": {
+              background:
+                props.background || props.theme.buttonDefaultBackground,
+            },
+            background: props.background || props.theme.buttonDefaultBackground,
+            color: props.color || props.theme.buttonDefaultFont,
+            cursor: "pointer",
+            svg: {
+              fill: props.color || props.theme.buttonDefaultFont,
+              maxHeight: props.fontSize || "1rem",
+              maxWidth: props.fontSize || "1rem",
+              transform: props.transform,
+            },
+          };
+
       return {
         ...isRoundStyles,
-        "&:hover": {
-          background: props.background || props.theme.themedWhite,
-        },
-        background: props.background,
+        ...disabledStyles,
         borderRadius: props.isRound ? "100%" : props.theme.borderRadius,
         boxShadow: props.hasShadow ? theme.shadows.level2 : "none",
-        color: props.color || props.theme.textHighlight,
         margin: props.margin,
-        opacity: props.disabled ? 0.5 : 1,
-        outlineColor: props.theme.primary,
+        outlineColor: props.theme.buttonDefaultFont,
         padding: props.padding || "0.5rem",
-        svg: {
-          fill: props.disabled
-            ? props.theme.lightGrey
-            : props.color || props.theme.textHighlight,
-          maxHeight: props.fontSize || "1rem",
-          maxWidth: props.fontSize || "1rem",
-          transform: props.transform,
-        },
       };
     }
   )
@@ -71,80 +86,94 @@ Button.defaultProps = {
 };
 
 export const PrimaryButton = withTheme(
-  styled(Button)<ButtonProps>({}, props => ({
-    "&:hover": {
+  styled(Button)<ButtonProps>({}, props => {
+    if (props.disabled) {
+      return {};
+    }
+    return {
+      "&:hover": {
+        background: props.theme.primary,
+      },
       background: props.theme.primary,
-    },
-    background: props.theme.primary,
-    color: props.theme.themedWhite,
-    opacity: props.disabled ? 0.5 : 1,
-    svg: {
-      fill: props.theme.themedWhite,
-    },
-  }))
+      color: props.theme.themedWhite,
+      svg: {
+        fill: props.theme.themedWhite,
+      },
+    };
+  })
 );
 
 export const RedButton = withTheme(
-  styled(Button)<ButtonProps>({}, props => ({
-    background: props.disabled ? "transparent" : props.theme.redLight,
-
-    border: `1px solid ${
-      props.disabled ? props.theme.redLight : "transparent"
-    }`,
-    color: props.disabled ? props.theme.redLight : props.theme.red,
-    ["&:active"]: {
-      background: props.theme.redHover,
-      color: props.theme.themedWhite,
-    },
-    ["&:hover"]: {
-      background: props.disabled ? "transparent" : props.theme.redHover,
-    },
-  }))
+  styled(Button)<ButtonProps>({}, props => {
+    if (props.disabled) {
+      return {};
+    }
+    return {
+      background: props.theme.buttonRedBackground,
+      border: `solid 1px ${props.theme.buttonRedBackground}`,
+      color: props.theme.buttonRedFont,
+      ["&:active"]: {
+        background: props.theme.buttonRedBackground,
+        color: props.theme.buttonRedFont,
+      },
+      ["&:hover"]: {
+        background: props.theme.buttonRedBackground,
+      },
+    };
+  })
 );
 
 export const GreenButton = withTheme(
-  styled(Button)<ButtonProps>({}, props => ({
-    background: props.disabled ? "transparent" : props.theme.greenLight,
-
-    border: `1px solid ${
-      props.disabled ? props.theme.greenLight : "transparent"
-    }`,
-    color: props.disabled ? props.theme.greenLight : props.theme.green,
-    ["&:active"]: {
-      background: props.theme.greenHover,
-      color: props.theme.white,
-    },
-    ["&:hover"]: {
-      background: props.disabled ? "transparent" : props.theme.greenHover,
-    },
-  }))
+  styled(Button)<ButtonProps>({}, props => {
+    if (props.disabled) {
+      return {};
+    }
+    return {
+      background: props.theme.buttonGreenBackground,
+      border: `solid 1px ${props.theme.buttonGreenBackground}`,
+      color: props.theme.buttonGreenFont,
+      ["&:active"]: {
+        background: props.theme.buttonGreenBackground,
+        color: props.theme.white,
+      },
+      ["&:hover"]: {
+        background: props.theme.buttonGreenBackground,
+      },
+    };
+  })
 );
 
 export const OutlineButton = withTheme(
-  styled(Button)<ButtonProps>({}, props => ({
-    background: props.theme.white,
-    border: `solid 1px ${
-      props.disabled
-        ? props.theme.textSubtile
-        : props.background || props.theme.primary
-    }`,
-    color: props.disabled ? props.theme.textSubtile : props.theme.primary,
-  }))
+  styled(Button)<ButtonProps>({}, props => {
+    if (props.disabled) {
+      return {};
+    }
+    return {
+      background: props.theme.white,
+      border: `solid 1px ${
+        props.disabled
+          ? props.theme.textSubtile
+          : props.background || props.theme.primary
+      }`,
+      color: props.disabled ? props.theme.textSubtile : props.theme.primary,
+    };
+  })
 );
 
 export const AcceptButton = withTheme(
-  ({ margin, theme, onClick, disabled }: any) => (
-    <PrimaryButton
+  ({ theme, margin, onClick, disabled }: any) => (
+    <Button
       disabled={disabled}
       onClick={onClick}
-      color={theme.white}
       margin={margin}
+      color={theme.buttonAcceptFont}
       hasShadow
+      background={theme.buttonAcceptBackground}
       fontSize="1rem"
       isRound
     >
       <AcceptIcon />
-    </PrimaryButton>
+    </Button>
   )
 );
 
@@ -154,9 +183,9 @@ export const CancelButton = withTheme(
       disabled={disabled}
       onClick={onClick}
       margin={margin}
-      color={theme.white}
+      color={theme.buttonCancelFont}
       hasShadow
-      background={theme.red}
+      background={theme.buttonCancelBackground}
       fontSize="1rem"
       transform="rotate(45deg)"
       isRound
@@ -166,9 +195,22 @@ export const CancelButton = withTheme(
   )
 );
 
-export const TextButton = styled("button")({
-  background: "none",
-  border: "none",
-  margin: 0,
-  padding: 0,
-});
+// export const PlusButton = { disabled };
+
+export const TextButton = withTheme(
+  styled("button")<{ disabled?: boolean }>(
+    {
+      "&:disabled": {
+        cursor: "not-allowed",
+      },
+      background: "none",
+      border: "2px solid transparent",
+      cursor: "pointer",
+      margin: 0,
+      padding: 0,
+    },
+    ({ theme, disabled }) => ({
+      color: disabled ? theme.buttonDisabled : theme.textButtonFont,
+    })
+  )
+);

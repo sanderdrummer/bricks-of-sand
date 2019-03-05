@@ -11,6 +11,7 @@ import { resetCss, Theme, theme } from "../ui";
 import { DayModeIcon } from "./dayMode";
 import { NightModeIcon } from "./nightMode";
 
+// tslint:disable:object-literal-sort-keys
 export const light: Theme = {
   ...theme,
   border: "#E5E6E5",
@@ -49,6 +50,16 @@ export const dark: Theme = {
   text: "#fdfdfd",
   textSubtile: "#5B687B",
   themedWhite: "#1d2832",
+  buttonCancelFont: "#ffedf0",
+  buttonCancelBackground: "#f54963",
+  buttonAcceptFont: "#353535",
+  buttonAcceptBackground: "#f2f3f2",
+  buttonGreenBackground: "#155949",
+  buttonGreenFont: "#00cc1d",
+  buttonRedBackground: "#544052",
+  buttonRedFont: "#f54963",
+  buttonDefaultBackground: "#2a3e4f",
+  buttonDefaultFont: "#eaebed",
 };
 export const SelectedThemeContext = React.createContext({
   selectedTheme: "light",

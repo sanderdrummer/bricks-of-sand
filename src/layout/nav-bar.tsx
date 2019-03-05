@@ -13,22 +13,23 @@ const NavBar = styled("div")(
       position: "fixed",
       top: 0,
       width: "100%",
-      zIndex: 200
-    }
+      zIndex: 200,
+    },
   },
   props => ({
     nav: {
       a: {
         color: props.theme.textLight + "!important",
+        cursor: "pointer",
         ["&.active"]: {
-          color: props.theme.primary + "!important"
-        }
+          color: props.theme.primary + "!important",
+        },
       },
       background: props.theme.themedWhite,
       svg: {
-        fill: props.theme.primary
-      }
-    }
+        fill: props.theme.primary,
+      },
+    },
   })
 );
 
