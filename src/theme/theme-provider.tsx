@@ -7,6 +7,7 @@ import {
   withTheme,
 } from "emotion-theming";
 import * as React from "react";
+import { TextButton } from "../forms/button";
 import { resetCss, Theme, theme } from "../ui";
 import { DayModeIcon } from "./dayMode";
 import { NightModeIcon } from "./nightMode";
@@ -60,6 +61,7 @@ export const dark: Theme = {
   buttonRedFont: "#f54963",
   buttonDefaultBackground: "#2a3e4f",
   buttonDefaultFont: "#eaebed",
+  defaultFillColor: "#e9ebec",
 };
 export const SelectedThemeContext = React.createContext({
   selectedTheme: "light",
@@ -127,11 +129,11 @@ export class ThemeProvider extends React.Component<Props, State> {
 }
 
 export const IconWrapper = withTheme(
-  styled("div")<{ height: string }>({}, props => ({
+  styled(TextButton)<{ height: string }>({}, props => ({
     alignItems: "center",
     display: "flex",
     justifyContent: "center",
-    svg: { fill: props.theme.primary, height: props.height },
+    svg: { fill: props.theme.defaultFillColor, height: props.height },
   }))
 );
 

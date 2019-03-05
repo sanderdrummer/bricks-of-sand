@@ -6,7 +6,7 @@ interface Props {
   width?: string;
   height?: string;
   margin?: string;
-  color: "redText" | "greenText" | "";
+  color?: "redText" | "greenText" | "defaultFillColor";
 }
 
 const IconWrapper = withTheme(
@@ -16,7 +16,7 @@ const IconWrapper = withTheme(
     },
     props => ({
       svg: {
-        fill: props.theme[props.color || "text"],
+        fill: props.theme[props.color || "defaultFillColor"],
         height: props.height,
         width: props.width,
       },
