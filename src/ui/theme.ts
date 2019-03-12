@@ -57,7 +57,6 @@ export const theme = {
   tablet: "48em",
   text: "#343434",
   textHighlight: "#576176",
-  textLight: "#4e4e4e",
   textSubtile: "#BABABA",
   themedBlack: "black",
   themedWhite: "white",

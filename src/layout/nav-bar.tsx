@@ -19,7 +19,7 @@ const NavBar = styled("div")(
   props => ({
     nav: {
       a: {
-        color: props.theme.textLight + "!important",
+        color: props.theme.textSubtile + "!important",
         cursor: "pointer",
         ["&.active"]: {
           color: props.theme.primary + "!important",

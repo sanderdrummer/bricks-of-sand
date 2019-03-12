@@ -15,24 +15,24 @@ export const IconInput = withTheme(
       color: theme.primary,
       padding: "0 0 0.2rem 0.2rem",
       transition: "100ms ease-in-out",
-      width: inactiveWidth
+      width: inactiveWidth,
     },
     ["input:focus"]: {
       "&+svg": {
-        fill: theme.primary + "!important"
+        fill: theme.primary + "!important",
       },
       borderBottom: `solid 1px ${theme.primary}`,
       placeholder: theme.primary,
-      width: activeWidth
+      width: activeWidth,
     },
     ["input::placeholder"]: {
-      color: theme.textLight
+      color: theme.textSubtile,
     },
     position: "relative",
     svg: {
-      fill: theme.textLight + "!important",
+      fill: theme.textSubtile + "!important",
       position: "absolute",
-      right: 0
-    }
+      right: 0,
+    },
   }))
 );

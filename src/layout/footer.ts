@@ -12,13 +12,13 @@ export const Footer = withTheme(
       justifyContent: "space-between",
     },
     a: {
-      color: theme.textLight,
+      color: theme.textSubtile,
     },
-    color: theme.textLight,
+    color: theme.textSubtile,
     fontSize: "0.8rem",
     padding: "1rem",
     svg: {
-      fill: theme.textLight,
+      fill: theme.textSubtile,
     },
   }))
 );

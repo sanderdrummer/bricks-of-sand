@@ -29,7 +29,7 @@ export const light: Theme = {
   redLight: "#ffdce0",
   redText: "#D16069",
   text: "#343434",
-  textSubtile: "#28333D",
+  textSubtile: "#bababa",
 };
 
 export const dark: Theme = {
@@ -49,7 +49,7 @@ export const dark: Theme = {
   redLight: "#514151",
   redText: "#FFBAC2",
   text: "#fdfdfd",
-  textSubtile: "#5B687B",
+  textSubtile: "#59687c",
   themedWhite: "#1d2832",
   buttonCancelFont: "#ffedf0",
   buttonCancelBackground: "#f54963",

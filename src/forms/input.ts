@@ -8,9 +8,9 @@ export const Input = styled("input")(props => ({
   padding: "0.5rem",
   width: "100%",
   ["&:focus"]: {
-    boxShadow: props.theme.inputShadow
+    boxShadow: props.theme.inputShadow,
   },
   ["input::placeholder"]: {
-    color: props.theme.textLight
-  }
+    color: props.theme.textSubtile,
+  },
 }));
