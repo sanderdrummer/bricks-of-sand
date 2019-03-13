@@ -39,7 +39,12 @@ const EllipsisWrapper = styled("div")({
   whiteSpace: "nowrap",
 });
 
-export const Ellipsis: React.FunctionComponent = ({ children }) => {
-  const title = typeof children === "string" ? children : "";
-  return <EllipsisWrapper title={title}>{children}</EllipsisWrapper>;
+export const Ellipsis: React.FunctionComponent<{ title?: string }> = ({
+  children,
+  title,
+}) => {
+  const fallback = typeof children === "string" ? children : "";
+  return (
+    <EllipsisWrapper title={title || fallback}>{children}</EllipsisWrapper>
+  );
 };
