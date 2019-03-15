@@ -1,6 +1,6 @@
 {
   "name": "bricks-of-sand",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "description": "another react component library",
   "author": "sanderdrummer",
   "license": "MIT",
@@ -13,8 +13,6 @@
     "npm": ">=5"
   },
   "scripts": {
-    "test": "cross-env CI=1 react-scripts-ts test --env=jsdom",
-    "test:watch": "react-scripts-ts test --env=jsdom",
     "lint-fix": "tslint --fix src/**/*.tsx -t verbose",
     "build": "rollup -c",
     "start": "rollup -c -w",
@@ -45,7 +43,6 @@
     "gh-pages": "^2.0.0",
     "react": "16.8.1",
     "react-dom": "16.8.1",
-    "react-scripts-ts": "^3.1.0",
     "rollup": "^1.1.2",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^9.1.3",
