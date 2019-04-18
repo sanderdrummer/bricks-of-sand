@@ -8,6 +8,7 @@ import {
   Block,
   SearchPlus,
   SearchMinus,
+  Icon,
 } from "bricks-of-sand";
 class App extends Component {
   render() {
@@ -23,6 +24,9 @@ class App extends Component {
           hi
           <SearchPlus />
           <SearchMinus />
+          <Icon>
+            <SearchMinus />
+          </Icon>
         </Block>
       </ThemeProvider>
     );
