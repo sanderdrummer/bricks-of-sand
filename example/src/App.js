@@ -9,6 +9,7 @@ import {
   SearchPlus,
   SearchMinus,
   Icon,
+  AutoComplete,
 } from "bricks-of-sand";
 class App extends Component {
   render() {
@@ -27,10 +28,23 @@ class App extends Component {
           <Icon>
             <SearchMinus />
           </Icon>
+          <Block>
+            <AutoCompleteExample />
+          </Block>
         </Block>
       </ThemeProvider>
     );
   }
 }
+
+const AutoCompleteExample = () => {
+  const items = [{ name: "test" }, { name: "peter" }, { name: "schmidt" }];
+
+  return (
+    <div>
+      <AutoComplete onSelect={() => null} items={items} />
+    </div>
+  );
+};
 
 export default App;

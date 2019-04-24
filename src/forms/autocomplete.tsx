@@ -35,7 +35,9 @@ export function AutoComplete<T extends { id: string }>(
 
   return (
     <Downshift
-      onChange={selection => props.onSelect(selection)}
+      onChange={selection => {
+        props.onSelect(selection);
+      }}
       itemToString={
         props.getString ? props.getString : item => (item ? item.name : "")
       }
@@ -48,12 +50,20 @@ export function AutoComplete<T extends { id: string }>(
         inputValue,
         highlightedIndex,
         selectedItem,
+        clearSelection,
+        openMenu,
       }) => (
         <div>
           <Relative>
             {props.input({
               ...getInputProps({
                 disabled: props.disabled,
+                onChange: (e: React.FormEvent<HTMLInputElement>) => {
+                  if (e.currentTarget.value === "") {
+                    clearSelection();
+                  }
+                },
+                onFocus: openMenu,
                 placeholder: props.placeholder,
               }),
             })}

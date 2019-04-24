@@ -70,6 +70,7 @@ export const DropDownCardItem = withTheme(
     {
       minWidth: 0,
       overflow: "hidden",
+      padding: "0.5rem",
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
     },
