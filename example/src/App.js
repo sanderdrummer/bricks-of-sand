@@ -42,7 +42,15 @@ const AutoCompleteExample = () => {
 
   return (
     <div>
-      <AutoComplete onSelect={() => null} items={items} />
+      <AutoComplete
+        onSelect={selection => console.log(selection)}
+        items={items}
+      />
+      <AutoComplete
+        clearOnSelect
+        onSelect={selection => console.log(selection)}
+        items={items}
+      />
     </div>
   );
 };

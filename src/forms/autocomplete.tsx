@@ -12,6 +12,7 @@ export interface AutoCompleteProps<T extends { id: string }> {
   placeholder: string;
   disabled?: boolean;
   items: T[];
+  clearOnSelect?: boolean;
   input: (props: any) => React.ReactNode;
   getString(item: T): string;
   onSelect(item: T): void;
@@ -39,7 +40,11 @@ export function AutoComplete<T extends { id: string }>(
         props.onSelect(selection);
       }}
       itemToString={
-        props.getString ? props.getString : item => (item ? item.name : "")
+        props.clearOnSelect
+          ? () => ""
+          : props.getString
+          ? props.getString
+          : item => (item ? item.name : "")
       }
     >
       {({
