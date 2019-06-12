@@ -3,11 +3,9 @@ import * as React from "react";
 export const PayPal = () => (
   // @ts-ignore
   <svg
-    aria-hidden="true"
     data-prefix="fab"
     data-icon="paypal"
-    class="svg-inline--fa fa-paypal fa-w-12"
-    role="img"
+    className="svg-inline--fa fa-paypal fa-w-12"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 384 512"
   >
