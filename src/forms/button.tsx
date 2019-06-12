@@ -5,11 +5,9 @@ import { AcceptIcon, CancelIcon } from "../icons";
 import { theme } from "../ui/theme";
 import { ButtonProps } from "./button";
 
-export interface ButtonProps {
-  color?: string;
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   background?: string;
-  disabled?: boolean;
-  type?: string;
   margin?: string;
   isRound?: boolean;
   fontSize?: string;
@@ -82,7 +80,7 @@ export const Button = withTheme(
 );
 
 Button.defaultProps = {
-  type: "text",
+  type: "button",
 };
 
 export const PrimaryButton = withTheme(
