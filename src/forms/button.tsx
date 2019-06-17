@@ -185,7 +185,7 @@ export const CancelButton = withTheme(
       hasShadow
       background={theme.buttonCancelBackground}
       fontSize="1rem"
-      transform="rotate(45deg)"
+      transform={Icon ? undefined : "rotate(45deg)"}
       isRound
     >
       {Icon ? <Icon /> : <CancelIcon />}
