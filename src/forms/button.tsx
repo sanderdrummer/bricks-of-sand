@@ -176,7 +176,7 @@ export const AcceptButton = withTheme(
 );
 
 export const CancelButton = withTheme(
-  ({ theme, margin, onClick, disabled }: any) => (
+  ({ theme, margin, onClick, disabled, Icon }: any) => (
     <Button
       disabled={disabled}
       onClick={onClick}
@@ -188,7 +188,7 @@ export const CancelButton = withTheme(
       transform="rotate(45deg)"
       isRound
     >
-      <CancelIcon />
+      {Icon ? <Icon /> : <CancelIcon />}
     </Button>
   )
 );
