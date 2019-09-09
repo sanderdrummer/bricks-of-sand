@@ -159,9 +159,10 @@ export const OutlineButton = withTheme(
 );
 
 export const AcceptButton = withTheme(
-  ({ theme, margin, onClick, disabled }: any) => (
+  ({ theme, margin, onClick, disabled, type = "button" }: any) => (
     <Button
       disabled={disabled}
+      type={type}
       onClick={onClick}
       margin={margin}
       color={theme.buttonAcceptFont}
